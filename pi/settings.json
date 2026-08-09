@@ -27,7 +27,7 @@
     "npm:@vigolium/piolium",
     "npm:@quintinshaw/pi-dynamic-workflows",
     "git:github.com/earendil-works/pi-review",
-    "npm:pi-lens"
+    "npm:pi-open-tui"
   ],
   "tuiMode": "fullscreen",
   "fullscreenScrollbar": "auto"
