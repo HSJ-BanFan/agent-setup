@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "plugins": {
+    "claude-hud@claude-hud": [
+      {
+        "scope": "user",
+        "installPath": "{{HOME}}/.claude/plugins/cache/claude-hud/claude-hud/{{VERSION}}",
+        "version": "0.4.2",
+        "installedAt": "2026-07-15T00:46:24.76Z",
+        "lastUpdated": "2026-07-15T00:46:24.76Z",
+        "gitCommitSha": "5555a1ddb5784f4cfaaf71acf7c8b386f6868bc7"
+      }
+    ],
+    "claude-code-setup@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "{{HOME}}/.claude/plugins/cache/claude-plugins-official/claude-code-setup/{{VERSION}}",
+        "version": "1.0.0",
+        "installedAt": "2026-07-27T08:49:49.792Z",
+        "lastUpdated": "2026-07-27T08:49:49.792Z",
+        "gitCommitSha": "b65c78ce17304364291d5c609b285eea83983469"
+      }
+    ]
+  }
+}

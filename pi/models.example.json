@@ -1,0 +1,32 @@
+{
+  "providers": {
+    "ds-proxy": {
+      "name": "DeepSeek via local proxy (18318)",
+      "baseUrl": "http://localhost:18318",
+      "api": "anthropic-messages",
+      "apiKey": "YOUR_PROXY_API_KEY_HERE",
+      "models": [
+        {
+          "id": "deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash (proxy)",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 1000000,
+          "maxTokens": 384000,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": null,
+            "low": null,
+            "medium": null,
+            "high": "high",
+            "xhigh": "max",
+            "max": "max"
+          },
+          "compat": {
+            "thinkingFormat": "deepseek"
+          }
+        }
+      ]
+    }
+  }
+}

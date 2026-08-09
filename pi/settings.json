@@ -1,0 +1,30 @@
+{
+  "defaultProvider": "opencode-go",
+  "defaultModel": "deepseek-v4-flash",
+  "defaultThinkingLevel": "max",
+  "theme": "dark",
+  "steeringMode": "all",
+  "followUpMode": "all",
+  "defaultProjectTrust": "always",
+  "retry": {
+    "enabled": true,
+    "maxRetries": 5
+  },
+  "skills": [
+    "~/.claude/skills",
+    "~/.codex/skills",
+    "-~/.claude/skills/ccg"
+  ],
+  "lastChangelogVersion": "0.84.1",
+  "packages": [
+    "npm:pi-mcp-adapter",
+    "npm:pi-subagents",
+    "npm:pi-web-access",
+    "npm:context-mode",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@narumitw/pi-goal",
+    "npm:pi-simplify",
+    "npm:@narumitw/pi-plan-mode",
+    "npm:pi-open-tui"
+  ]
+}

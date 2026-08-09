@@ -1,0 +1,33 @@
+# Codex 默认配置模板
+# API key 已脱敏,复制后需在 auth.json 中填入你的密钥
+
+model_provider = "custom"
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+disable_response_storage = true
+
+[model_providers.custom]
+name = "anyrouter"
+base_url = "https://anyrouter.top/v1"
+wire_api = "responses"
+requires_openai_auth = true
+# 说明: API key 存放在 ~/.codex/auth.json 的 OPENAI_API_KEY 字段,
+# 或在任意 API 网关控制台生成。此配置不包含密钥。
+
+[notice.model_migrations]
+gpt-5-codex = "gpt-5.2-codex"
+"gpt-5.2-codex" = "gpt-5.4"
+
+# 信任的项目目录(按需修改为你的路径)
+[projects."C:\\Users\\<USERNAME>"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 4
+
+[windows]
+sandbox = "unelevated"
+
+[plugins."github@openai-api-curated"]
+enabled = true
