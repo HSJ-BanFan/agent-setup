@@ -12,6 +12,8 @@ AI agent 按此矩阵把用户请求映射到本仓库的具体文件与执行�
 | "安装 Pi" | `skill/tool-index.md` §A + `pi/README.md` | npm 安装 → 复制 settings/models/扩展 → /reload |
 | "安装 OpenCode" | `skill/tool-index.md` §A + `opencode/README.md` | 官方脚本安装 → 复制 opencode.jsonc → auth login |
 | "配置 CC-Switch" | `cc-switch/README.md` | 安装 → 添加供应商 → 确认代理/插件集成开关 |
+| "安装/配置 Orca" | `skill/tool-index.md` §A + `orca/README.md` | 官网安装 → 复制 hooks 到 `~/.orca/agent-hooks/` → 在 Orca 中建 agent 终端 |
+| "复制 Orca hooks" | `orca/agent-hooks/` | 直接复制(无敏感信息,环境变量传 token) |
 | "装 claude-hud" | `skill/tool-index.md` §B + `claude-code/plugins.md` | marketplace add → plugin install → 验证状态栏 |
 | "接 MCP(GitHub/context7...)" | `skill/tool-index.md` §C + `claude-code/plugins.md`、`pi/extensions.md` | 按对应 agent 的 mcpServers 声明,引导填 token |
 | "部署 9router/grok2api/kiro-rs/cli-proxy-api/cpa" | `skill/tool-index.md` §D + `infra/README.md`、`infra/cliproxy/docker-compose.yml` | docker compose / 官方部署 → 配置密钥 → 验证端口 |

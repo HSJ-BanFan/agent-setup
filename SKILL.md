@@ -25,6 +25,7 @@ license: MIT
 | `skill/sources.json` | 机器可读的源仓库清单(JSON) |
 | `skill/routing.md` | 用户任务 → 执行路径的路由矩阵 |
 | `RULES.md` | 必须遵守的执行规则(安全/顺序/验证) |
+| `ENVIRONMENT.md` | **复刻完整性说明**:可复刻 / 需手动 / 不可复刻清单 |
 
 ### 2. 判断用户意图(路由)
 

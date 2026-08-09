@@ -15,6 +15,7 @@
 | **Pi** | https://github.com/earendil-works/pi | `npm install -g @earendil-works/pi-coding-agent` | `{HOME}/.pi/agent/settings.json`、`models.json` | 终端编码框架;本仓库 `pi/` |
 | **OpenCode** | https://github.com/sst/opencode | `curl -fsSL https://opencode.ai/install \| bash` 或 `npm i -g opencode-ai` | `{HOME}/.config/opencode/opencode.jsonc` | 官网 opencode.ai;本仓库 `opencode/` |
 | **CC-Switch** | https://github.com/farion1231/cc-switch | 官网 ccswitch.io 下载桌面安装包 | `{HOME}/.cc-switch/`(settings.json + SQLite) | 多 agent 供应商切换;本仓库 `cc-switch/` |
+| **Orca** | https://github.com/stablyai/orca | 官网 https://www.onorca.dev 下载桌面安装包 | `{HOME}/.orca/agent-hooks/`(自动生成) | Agent 编排(worktree/终端/自动化);本仓库 `orca/` |
 
 ## B. 插件 / 扩展 / 技能源
 

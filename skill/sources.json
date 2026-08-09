@@ -6,7 +6,8 @@
     "codex": { "repo": "https://github.com/openai/codex", "npm": "@openai/codex", "configDir": "~/.codex" },
     "pi": { "repo": "https://github.com/earendil-works/pi", "npm": "@earendil-works/pi-coding-agent", "configDir": "~/.pi/agent" },
     "opencode": { "repo": "https://github.com/sst/opencode", "install": "https://opencode.ai/install", "configDir": "~/.config/opencode" },
-    "cc-switch": { "repo": "https://github.com/farion1231/cc-switch", "website": "https://ccswitch.io", "configDir": "~/.cc-switch" }
+    "cc-switch": { "repo": "https://github.com/farion1231/cc-switch", "website": "https://ccswitch.io", "configDir": "~/.cc-switch" },
+    "orca": { "repo": "https://github.com/stablyai/orca", "website": "https://www.onorca.dev", "configDir": "~/.orca" }
   },
   "plugins": {
     "claude-hud": { "repo": "https://github.com/jarrodwatts/claude-hud", "install": "claude plugin marketplace add jarrodwatts/claude-hud" },

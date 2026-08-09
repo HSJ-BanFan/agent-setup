@@ -28,6 +28,7 @@
 | **Pi** | settings.json、models、4 个扩展、MCP、包列表 | [`pi/`](pi/) |
 | **OpenCode** | opencode.jsonc(MCP 服务器) | [`opencode/`](opencode/) |
 | **CC-Switch** | 供应商切换工具配置说明 | [`cc-switch/`](cc-switch/) |
+| **Orca** | Agent 编排工具:hooks、cli 技能、安装说明 | [`orca/`](orca/) |
 | **共享技能** | 64 个跨 agent 技能 | [`skills/`](skills/) |
 | **AI 基础设施** | 9router / grok2api / kiro-rs / cli-proxy-api / cpa-manager | [`infra/`](infra/) |
 
@@ -58,6 +59,8 @@ cd agent-setup
 ┌─────────────────────────────────────────────────────┐
 │            AI 开发环境(Claude Code / Codex /         │
 │             Pi / OpenCode / CC-Switch)              │
+├─────────────────────────────────────────────────────┤
+│            Orca(agent 编排:worktree/终端/hooks)     │
 ├─────────────────────────────────────────────────────┤
 │           共享技能库 ~/.agents/skills(64 个)         │
 ├─────────────────────────────────────────────────────┤
