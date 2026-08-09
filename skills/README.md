@@ -37,6 +37,20 @@ github-ops                prompt-optimizer             security-review
 > 更多通用技能(官方 pdf/docx/xlsx/pptx、webapp-testing 等)可从
 > https://github.com/anthropics/skills 获取并加入本目录。
 
+## 来源索引
+
+每个技能的上游开源仓库见 **[`SKILLS-SOURCES.md`](SKILLS-SOURCES.md)**:
+
+| 上游仓库 | 技能数 | 说明 |
+|---|---|---|
+| [emilkowalski/skills](https://github.com/emilkowalski/skills) | 6 | 设计/动效(Emil Kowalski) |
+| [greensock/gsap-skills](https://github.com/greensock/gsap-skills) | 8 | GSAP 官方 |
+| [mattpocock/skills](https://github.com/mattpocock/skills) | ~25 | 工程流程(Matt Pocock) |
+| [fengshao1227/ccg-workflow](https://github.com/fengshao1227/ccg-workflow) | 7 | Git/文档(CCG 附带) |
+| [stablyai/orca](https://github.com/stablyai/orca) | 4 | 编排/桌面控制 |
+| [vercel-labs/skills](https://github.com/vercel-labs/skills) | 1 | 技能发现 |
+| CC-Switch 市场同步 | 12 | 上游待确认(skills.sh) |
+
 ## 安装到新机器
 
 技能统一放在 `~/.agents/skills/`(各 agent 通过符号链接引用):
