@@ -26,11 +26,8 @@
     "git:github.com/earendil-works/pi-review",
     "npm:pi-open-tui",
     "npm:pi-hashline-edit-pro",
-    "npm:pi-rtk-optimizer",
-    "npm:@ff-labs/pi-fff",
     "npm:@vigolium/piolium",
     "npm:pi-lens",
-    "npm:pi-goal-list-loop-audit",
     "npm:@quintinshaw/pi-dynamic-workflows"
   ],
   "tuiMode": "fullscreen",
