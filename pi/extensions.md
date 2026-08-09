@@ -46,10 +46,8 @@ Pi 的 MCP 配置在 `~/.pi/agent/mcp.json`:
 | `@narumitw/pi-plan-mode` | 计划模式 |
 | `pi-open-tui` | TUI 增强(header/footer 计量) |
 | `earendil-works/pi-review` | 代码审查(/review 命令,官方) |
-| `@ogulcancelik/pi-session-recall` | 历史会话回忆(session_query 工具) |
 
-> 安装方式:`pi install`(而非 npm),pi-review 为 git 源:`pi install git:github.com/earendil-works/pi-review`;
-> pi-session-recall 为 npm 源:`pi install npm:@ogulcancelik/pi-session-recall`。
+> 安装方式:`pi install`(而非 npm),pi-review 为 git 源:`pi install git:github.com/earendil-works/pi-review`。
 
 ## Pi 技能
 

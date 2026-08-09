@@ -25,7 +25,6 @@
     "npm:pi-simplify",
     "npm:@narumitw/pi-plan-mode",
     "git:github.com/earendil-works/pi-review",
-    "npm:@ogulcancelik/pi-session-recall",
     "npm:pi-open-tui"
   ],
   "tuiMode": "fullscreen",
