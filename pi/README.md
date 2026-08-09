@@ -57,22 +57,16 @@ cp pi/agent/extensions/*.ts ~/.pi/agent/extensions/
 
 > opencode-go 端点需要路由(https://opencode.ai/go),key 从你的 OpenCode 网关获取。
 
-### 4. 安装包依赖(settings.json 中 packages 列表)
+### 4. 安装包依赖(常驻 6 个)
 
 ```bash
 pi  # 首次启动时按提示安装,或手动:
-pi install npm:pi-mcp-adapter pi-subagents pi-web-access context-mode @juicesharp/rpiv-todo pi-simplify @narumitw/pi-plan-mode
+pi install npm:pi-mcp-adapter pi-subagents context-mode pi-hashline-edit-pro pi-open-tui
 pi install git:github.com/earendil-works/pi-review
-pi install npm:pi-hashline-edit-pro @vigolium/piolium
-pi install npm:pi-lens   # 注意:需先装 @ast-grep/cli-win32-x64-msvc 平台包(见下)
-pi install npm:@quintinshaw/pi-dynamic-workflows
 ```
 
-> ⚠️ pi-lens 安装提示:依赖 @ast-grep/cli 的原生二进制,若 postinstall 失败
-> (平台包发布延迟),先手动:
-> `npm install -C ~/.pi/agent/npm @ast-grep/cli-win32-x64-msvc@0.44.1 --legacy-peer-deps`
-> 再 `npm install -C ~/.pi/agent/npm --ignore-scripts pi-lens --legacy-peer-deps`,
-> 并把平台包的 ast-grep.exe 复制为 `node_modules/@ast-grep/cli/ast-grep.exe` 与 `sg.exe`。
+> **精简原则**:仅常驻 6 个,重型工具按需加载(不常驻):
+> `pi -e npm:@vigolium/piolium`(安全审计)、`pi -e npm:@quintinshaw/pi-dynamic-workflows`(动态工作流)等。
 
 ### 5. 配置模型
 
