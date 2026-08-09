@@ -30,7 +30,7 @@ Pi 的 MCP 配置在 `~/.pi/agent/mcp.json`:
 
 配置后需在 pi 内重启或 `/reload` 生效。`mcp.json` 中的 `imports` 可用于引入共享 MCP 定义。
 
-## Pi 包(Packages)— 常驻 6 个
+## Pi 包(Packages)— 常驻 9 个
 
 `settings.json` 中 `packages` 列表(全部为 npm 包,地址即包名):
 
@@ -42,11 +42,14 @@ Pi 的 MCP 配置在 `~/.pi/agent/mcp.json`:
 | `pi-hashline-edit-pro` | 哈希锚定 read/replace(3 字符哈希、碰撞解决、撤销) |
 | `earendil-works/pi-review` | 代码审查(/review,官方) |
 | `pi-open-tui` | TUI 增强(header/footer/editor) |
+| `pi-web-access` | 网页搜索/URL 抓取/GitHub 克隆/PDF/视频理解 |
+| `pi-simplify` | 代码简化审查(清晰度/一致性/可维护性) |
+| `@ff-labs/pi-fff` | 模糊文件/内容搜索(fffind/ffgrep;项目目录内可用) |
 
 > 安装方式:`pi install`(而非 npm)。pi-review 为 git 源:
 > `pi install git:github.com/earendil-works/pi-review`。
 >
-> **精简原则**:仅常驻这 6 个,重型工具按需 `pi -e <package>` 临时加载
+> **精简原则**:常驻这 9 个,重型工具按需 `pi -e <package>` 临时加载
 > (如安全审计 `pi -e npm:@vigolium/piolium`、动态工作流 `pi -e npm:@quintinshaw/pi-dynamic-workflows`)。
 
 ## Pi 技能

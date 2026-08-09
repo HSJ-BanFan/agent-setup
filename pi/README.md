@@ -57,15 +57,15 @@ cp pi/agent/extensions/*.ts ~/.pi/agent/extensions/
 
 > opencode-go 端点需要路由(https://opencode.ai/go),key 从你的 OpenCode 网关获取。
 
-### 4. 安装包依赖(常驻 6 个)
+### 4. 安装包依赖(常驻 9 个)
 
 ```bash
 pi  # 首次启动时按提示安装,或手动:
-pi install npm:pi-mcp-adapter pi-subagents context-mode pi-hashline-edit-pro pi-open-tui
+pi install npm:pi-mcp-adapter pi-subagents context-mode pi-hashline-edit-pro pi-open-tui pi-web-access pi-simplify @ff-labs/pi-fff
 pi install git:github.com/earendil-works/pi-review
 ```
 
-> **精简原则**:仅常驻 6 个,重型工具按需加载(不常驻):
+> **精简原则**:常驻这 9 个,重型工具按需加载(不常驻):
 > `pi -e npm:@vigolium/piolium`(安全审计)、`pi -e npm:@quintinshaw/pi-dynamic-workflows`(动态工作流)等。
 
 ### 5. 配置模型
