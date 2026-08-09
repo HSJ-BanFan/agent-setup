@@ -1,6 +1,6 @@
 # 共享技能库
 
-本目录是跨 agent 共享的技能库(52 个技能,共 666KB),从 `~/.agents/skills/` 复制。
+本目录是跨 agent 共享的技能库(64 个技能,约 800KB),从 `~/.agents/skills/` 复制并补充了通用技能。
 
 ## 技能清单
 
@@ -18,11 +18,24 @@ gsap-timeline            gsap-utils              handoff
 implement                improve-animations      improve-codebase-architecture
 orca-cli                 orchestration           prototype
 research                 resolving-merge-conflicts  review-animations
-setup-matt-pocock-skills tdd                     teach
-to-questionnaire         to-spec                 to-tickets
-triage                   wait-what               wayfinder
-wizard                   writing-for-agents
+setup-matt-pocock-skills spec-workflow           tdd
+teach                    to-questionnaire        to-spec
+to-tickets               triage                  wait-what
+wayfinder                wizard                  writing-for-agents
+writing-great-skills
 ```
+
+**新增通用技能(适合 agent 搭配使用)**:
+
+```
+agentic-engineering       agent-harness-construction   agent-introspection-debugging
+ai-regression-testing     code-tour                    deep-research
+docker-patterns           e2e-testing                  enterprise-agent-ops
+github-ops                prompt-optimizer             security-review
+```
+
+> 更多通用技能(官方 pdf/docx/xlsx/pptx、webapp-testing 等)可从
+> https://github.com/anthropics/skills 获取并加入本目录。
 
 ## 安装到新机器
 

@@ -1,30 +1,35 @@
 # Agent 配置仓库 (agent-setup)
 
-本仓库用于**跨机器快速复刻 AI 开发智能体环境**,包含 4 个主要 agent 的完整配置、
-52 个共享技能和 Docker AI 基础设施模板。
+本仓库是 **AI 开发环境配置技能包**:跨机器快速复刻完整环境。
+包含 4 个主要 agent 的配置、64 个共享技能、MCP/插件方案和 Docker AI 基础设施模板,
+并内置**配置技能**(`SKILL.md`),让任意 AI agent(pi / opencode / Claude Code / Codex)
+在陌生机器上自动引导完成配置。
 
 > ⚠️ **安全声明**:本仓库已做脱敏处理,不含任何 API 密钥。
 > 所有 `YOUR_*_KEY_HERE` / `YOUR_API_KEY` 占位符需要在新机器上替换为真实值。
 
+## 给 AI Agent 的入口
+
+| 文件 | 用途 |
+|---|---|
+| [`SKILL.md`](SKILL.md) | **配置技能主入口**:agent 读取后按流程执行 |
+| [`skill/tool-index.md`](skill/tool-index.md) | **所有工具的源仓库地址索引**(安装/配置/端口) |
+| [`skill/sources.json`](skill/sources.json) | 机器可读的源仓库清单 |
+| [`skill/routing.md`](skill/routing.md) | 任务 → 执行路径路由矩阵 |
+| [`RULES.md`](RULES.md) | 执行规则(安全/来源/顺序/平台) |
+| [`AGENTS.md`](AGENTS.md) | 平台中立仓库指令 |
+
 ## 覆盖范围
 
-| Agent | 配置内容 | 目录 |
+| 项 | 内容 | 目录 |
 |---|---|---|
-| **Claude Code** | settings.json、插件(claude-hud 等,含地址与方案)、MCP 服务器 | [`claude-code/`](claude-code/) |
-| **Codex** | config.toml(anyrouter 网关)、auth 模板、插件 | [`codex/`](codex/) |
-| **Pi** | settings.json、models、扩展(含自动会话命名)、MCP、包列表 | [`pi/`](pi/) |
+| **Claude Code** | settings.json、claude-hud 插件、MCP 服务器 | [`claude-code/`](claude-code/) |
+| **Codex** | config.toml、auth 模板、插件 | [`codex/`](codex/) |
+| **Pi** | settings.json、models、4 个扩展、MCP、包列表 | [`pi/`](pi/) |
 | **OpenCode** | opencode.jsonc(MCP 服务器) | [`opencode/`](opencode/) |
 | **CC-Switch** | 供应商切换工具配置说明 | [`cc-switch/`](cc-switch/) |
-| **共享技能** | 52 个跨 agent 技能(设计/开发/工具链) | [`skills/`](skills/) |
-| **AI 基础设施** | Docker 容器清单 + cli-proxy-api 部署模板 | [`infra/`](infra/) |
-
-## 快速导航
-
-| 你想了解 | 看这里 |
-|---|---|
-| Claude Code 插件/ MCP 配置 | [`claude-code/plugins.md`](claude-code/plugins.md) |
-| Pi 扩展 / MCP / 包 | [`pi/extensions.md`](pi/extensions.md) |
-| 各工具完整复刻步骤 | 各子目录 `README.md` |
+| **共享技能** | 64 个跨 agent 技能 | [`skills/`](skills/) |
+| **AI 基础设施** | 9router / grok2api / kiro-rs / cli-proxy-api / cpa-manager | [`infra/`](infra/) |
 
 ## 快速开始(新机器)
 
@@ -33,7 +38,10 @@
 git clone https://github.com/<你的用户名>/agent-setup.git
 cd agent-setup
 
-# 2. 一键复刻(Windows)
+# 2. 让 AI 代劳(推荐):把本仓库路径告诉你的 agent(pi/opencode/claude),
+#    它会读取 SKILL.md 自动引导完成配置
+
+# 或一键复刻(Windows)
 .\setup.ps1
 
 # 或(Linux/macOS)
@@ -42,41 +50,22 @@ cd agent-setup
 # 3. 按提示填入 API keys(见各目录 README)
 ```
 
-> 详细步骤:每个子目录都有 `README.md`,包含该工具的安装与配置说明。
+> 详细步骤:每个子目录都有 `README.md`;工具来源见 [`skill/tool-index.md`](skill/tool-index.md)。
 
 ## 架构概览
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                 你的 AI 开发环境                      │
-├──────────┬──────────┬──────────┬────────────────────┤
-│ Claude   │  Codex   │   Pi     │     OpenCode       │
-│  Code    │          │          │                    │
-├──────────┴──────────┴──────────┴────────────────────┤
-│              共享技能库 ~/.agents/skills             │
-│         (52 skills: 设计/开发/工具/工作流)            │
+│            AI 开发环境(Claude Code / Codex /         │
+│             Pi / OpenCode / CC-Switch)              │
 ├─────────────────────────────────────────────────────┤
-│          CC-Switch(供应商切换 + 本地代理)            │
+│           共享技能库 ~/.agents/skills(64 个)         │
 ├─────────────────────────────────────────────────────┤
-│     Docker AI 基础设施                               │
+│     Docker AI 基础设施                              │
 │  9router(20128)  grok2api(21434,免费grok)           │
 │  kiro-rs(18990,本地模型)  cli-proxy-api(18318)      │
+│  cpa-manager(18317)                                 │
 └─────────────────────────────────────────────────────┘
 ```
 
-## 模型路由速查
-
-| 用途 | 端点 | 模型 | 说明 |
-|---|---|---|---|
-| Claude Code 主路由 | `127.0.0.1:15721`(cc-switch) | deepseek-v4-flash | 自动写回 env |
-| Codex | `anyrouter.top/v1` | gpt-5.6-sol | auth.json 存 key |
-| Pi 默认 | opencode-go provider | deepseek-v4-flash | settings.json |
-| 会话命名(扩展) | `127.0.0.1:21434`(grok) → `18990`(kiro) | grok-chat-fast / claude-haiku-4.5 | 免费,fallback 链 |
-| 免费 Grok | `127.0.0.1:21434` | grok-chat-fast | 2-8s 波动 |
-| 本地模型 | `127.0.0.1:18990` | claude-haiku-4.5 等 | 1-3s 稳定 |
-
-## 维护
-
-- 修改配置后:更新对应目录文件 → commit → push
-- 新机器复刻:clone → setup 脚本 → 填 key
-- 技能更新:重新复制 `~/.agents/skills/*` 到 `skills/`
+> 基础设施各服务的源仓库、端口与部署方式见 [`skill/tool-index.md`](skill/tool-index.md) §D。
