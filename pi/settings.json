@@ -21,7 +21,6 @@
     "npm:pi-web-access",
     "npm:context-mode",
     "npm:@juicesharp/rpiv-todo",
-    "npm:@narumitw/pi-goal",
     "npm:pi-simplify",
     "npm:@narumitw/pi-plan-mode",
     "git:github.com/earendil-works/pi-review",
@@ -31,7 +30,9 @@
     "npm:@ff-labs/pi-fff",
     "npm:@vigolium/piolium",
     "npm:@plannotator/pi-extension",
-    "npm:pi-lens"
+    "npm:pi-lens",
+    "npm:pi-goal-list-loop-audit",
+    "npm:@quintinshaw/pi-dynamic-workflows"
   ],
   "tuiMode": "fullscreen",
   "fullscreenScrollbar": "auto"

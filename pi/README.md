@@ -61,10 +61,12 @@ cp pi/agent/extensions/*.ts ~/.pi/agent/extensions/
 
 ```bash
 pi  # 首次启动时按提示安装,或手动:
-pi install npm:pi-mcp-adapter pi-subagents pi-web-access context-mode @juicesharp/rpiv-todo @narumitw/pi-goal pi-simplify @narumitw/pi-plan-mode pi-open-tui
+pi install npm:pi-mcp-adapter pi-subagents pi-web-access context-mode @juicesharp/rpiv-todo pi-simplify @narumitw/pi-plan-mode pi-open-tui
+pi install npm:pi-goal-list-loop-audit   # 替代 @narumitw/pi-goal
 pi install git:github.com/earendil-works/pi-review
 pi install npm:pi-hashline-edit-pro pi-rtk-optimizer @ff-labs/pi-fff @vigolium/piolium @plannotator/pi-extension
 pi install npm:pi-lens   # 注意:需先装 @ast-grep/cli-win32-x64-msvc 平台包(见下)
+pi install npm:@quintinshaw/pi-dynamic-workflows
 ```
 
 > ⚠️ pi-lens 安装提示:依赖 @ast-grep/cli 的原生二进制,若 postinstall 失败

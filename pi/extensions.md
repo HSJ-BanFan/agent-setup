@@ -41,7 +41,7 @@ Pi 的 MCP 配置在 `~/.pi/agent/mcp.json`:
 | `pi-web-access` | 网页访问 |
 | `context-mode` | 上下文管理模式 |
 | `@juicesharp/rpiv-todo` | 任务清单 |
-| `@narumitw/pi-goal` | 目标跟踪 |
+| `pi-goal-list-loop-audit` | 自主目标控制台:面试式目标 + 审计队列 + 永续循环(替代 @narumitw/pi-goal) |
 | `pi-simplify` | 简化输出 |
 | `@narumitw/pi-plan-mode` | 计划模式 |
 | `pi-open-tui` | TUI 增强(header/footer 计量) |
@@ -52,6 +52,7 @@ Pi 的 MCP 配置在 `~/.pi/agent/mcp.json`:
 | `@plannotator/pi-extension` | 交互式计划批注审查(/plan 批注、代码/PR 审查) |
 | `pi-lens` | LSP 诊断/类型检查/ast-grep 结构规则/依赖图(编辑后自动反馈) |
 | `earendil-works/pi-review` | 代码审查(/review 命令,官方) |
+| `@quintinshaw/pi-dynamic-workflows` | 动态工作流:fan-out 子代理/模型路由/worktree 隔离/记账,TUI + /deep-research 等 5 个工作流 |
 
 > 安装方式:`pi install`(而非 npm),pi-review 为 git 源:`pi install git:github.com/earendil-works/pi-review`。
 
