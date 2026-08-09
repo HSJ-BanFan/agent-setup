@@ -49,7 +49,6 @@ Pi 的 MCP 配置在 `~/.pi/agent/mcp.json`:
 | `pi-rtk-optimizer` | 读压缩 + 源码过滤 + 命令重写(上下文优化) |
 | `@ff-labs/pi-fff` | FFF 模糊文件/内容搜索 |
 | `@vigolium/piolium` | 多阶段安全审计(子代理/隔离上下文) |
-| `@plannotator/pi-extension` | 交互式计划批注审查(/plan 批注、代码/PR 审查) |
 | `pi-lens` | LSP 诊断/类型检查/ast-grep 结构规则/依赖图(编辑后自动反馈) |
 | `earendil-works/pi-review` | 代码审查(/review 命令,官方) |
 | `@quintinshaw/pi-dynamic-workflows` | 动态工作流:fan-out 子代理/模型路由/worktree 隔离/记账,TUI + /deep-research 等 5 个工作流 |

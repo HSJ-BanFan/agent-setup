@@ -29,7 +29,6 @@
     "npm:pi-rtk-optimizer",
     "npm:@ff-labs/pi-fff",
     "npm:@vigolium/piolium",
-    "npm:@plannotator/pi-extension",
     "npm:pi-lens",
     "npm:pi-goal-list-loop-audit",
     "npm:@quintinshaw/pi-dynamic-workflows"
