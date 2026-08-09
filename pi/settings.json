@@ -25,7 +25,13 @@
     "npm:pi-simplify",
     "npm:@narumitw/pi-plan-mode",
     "git:github.com/earendil-works/pi-review",
-    "npm:pi-open-tui"
+    "npm:pi-open-tui",
+    "npm:pi-hashline-edit-pro",
+    "npm:pi-rtk-optimizer",
+    "npm:@ff-labs/pi-fff",
+    "npm:@vigolium/piolium",
+    "npm:@plannotator/pi-extension",
+    "npm:pi-lens"
   ],
   "tuiMode": "fullscreen",
   "fullscreenScrollbar": "auto"

@@ -45,6 +45,12 @@ Pi 的 MCP 配置在 `~/.pi/agent/mcp.json`:
 | `pi-simplify` | 简化输出 |
 | `@narumitw/pi-plan-mode` | 计划模式 |
 | `pi-open-tui` | TUI 增强(header/footer 计量) |
+| `pi-hashline-edit-pro` | 哈希锚定 read/replace(3 字符哈希、碰撞解决、撤销) |
+| `pi-rtk-optimizer` | 读压缩 + 源码过滤 + 命令重写(上下文优化) |
+| `@ff-labs/pi-fff` | FFF 模糊文件/内容搜索 |
+| `@vigolium/piolium` | 多阶段安全审计(子代理/隔离上下文) |
+| `@plannotator/pi-extension` | 交互式计划批注审查(/plan 批注、代码/PR 审查) |
+| `pi-lens` | LSP 诊断/类型检查/ast-grep 结构规则/依赖图(编辑后自动反馈) |
 | `earendil-works/pi-review` | 代码审查(/review 命令,官方) |
 
 > 安装方式:`pi install`(而非 npm),pi-review 为 git 源:`pi install git:github.com/earendil-works/pi-review`。
