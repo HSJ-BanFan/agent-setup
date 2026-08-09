@@ -18,7 +18,6 @@ AI agent 按此矩阵把用户请求映射到本仓库的具体文件与执行�
 | "接 MCP(GitHub/context7...)" | `skill/tool-index.md` §C + `claude-code/plugins.md`、`pi/extensions.md` | 按对应 agent 的 mcpServers 声明,引导填 token |
 | "部署 9router/grok2api/kiro-rs/cli-proxy-api/cpa" | `skill/tool-index.md` §D + `infra/README.md`、`infra/cliproxy/docker-compose.yml` | docker compose / 官方部署 → 配置密钥 → 验证端口 |
 | "同步/安装技能" | `skills/README.md` | 复制到 `~/.agents/skills/` → 为各 agent 建符号链接 |
-| "配置 pi 会话自动命名" | `pi/extensions.md` | 复制 auto-session-name 扩展 + 配置文件 |
 | "我的 agent 连不上模型" | `RULES.md` + 各 agent README 的"配置模型端点"章节 | 检查代理端口/环境变量/密钥 |
 
 ## 执行优先级(遇到冲突时)

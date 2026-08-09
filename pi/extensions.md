@@ -4,31 +4,12 @@
 
 | 扩展 | 文件 | 功能 | 地址/来源 |
 |---|---|---|---|
-| **auto-session-name** | `auto-session-name.ts` | 自动为会话生成标题(LLM 摘要 + 启发式回退),`/name-sessions` 批量命名 | 本仓库自研 |
 | **orca-agent-status** | `orca-agent-status.ts` | 与 Orca 面板同步 agent 状态 | Orca 自动管理 |
 | **orca-prefill** | `orca-prefill.ts` | Orca 会话预填 | Orca 自动管理 |
 | **orca-titlebar-spinner** | `orca-titlebar-spinner.ts` | Orca 标题栏状态动画 | Orca 自动管理 |
 
-> orca-* 扩展由 Orca 面板自动生成管理,`auto-session-name` 为手动安装。
+> orca-* 扩展由 Orca 面板自动生成管理。
 > 扩展加载:放入 `~/.pi/agent/extensions/`,在 pi 内 `/reload` 生效。
-
-### auto-session-name 配置
-
-配置文件:`~/.pi/agent/auto-session-name.json`(模板见 `auto-session-name.example.json`):
-
-```json
-{
-  "enabled": true,
-  "models": [
-    { "baseUrl": "http://127.0.0.1:21434", "apiKey": "YOUR_KEY", "model": "grok-chat-fast", "timeoutMs": 12000 },
-    { "baseUrl": "http://127.0.0.1:18990", "apiKey": "YOUR_KEY", "model": "claude-haiku-4.5", "timeoutMs": 8000 }
-  ]
-}
-```
-
-- 多端点 fallback:依次尝试,全部失败回退启发式(取首条消息截断)
-- 命令:`/llm-title status|on|off`、`/name-sessions [dry|all]`
-- 费用:本地 grok2api / kiro-rs,免费
 
 ## Pi 的 MCP
 

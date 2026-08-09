@@ -10,7 +10,7 @@
 | Agent 配置 | Claude Code / Codex / Pi / OpenCode 的配置模板 | 复制 + 填 key |
 | 插件 | claude-hud(含 marketplace 注册与状态栏方案) | 命令安装 |
 | MCP | GitHub / mcp-router / context7 / gh_grep 方案 | 声明 + 填 token |
-| 扩展 | Pi 的 4 个扩展(含 auto-session-name 源码) | 复制 + `/reload` |
+| 扩展 | Pi 的 3 个扩展(orca 集成) | 复制 + `/reload` |
 | 技能 | 64 个共享技能(完整内容) | 复制到 `~/.agents/skills/` + 符号链接 |
 | Orca | agent-hooks(12 个脚本,无敏感)+ cli 技能 + 安装说明 | 复制到 `~/.orca/agent-hooks/` |
 | 基础设施 | 9router / grok2api / kiro-rs / cli-proxy-api / cpa-manager 部署方案 | 按 `infra/` + tool-index 部署 |

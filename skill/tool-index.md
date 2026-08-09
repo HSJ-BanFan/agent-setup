@@ -29,7 +29,7 @@
 | **Emil Kowalski 技能** | https://github.com/emilkowalski/skills | `npx skills add https://github.com/emilkowalski/skills` | 设计/动效技能 6 个(本仓库已含) |
 | **Vercel 技能** | https://github.com/vercel-labs/skills | `npx skills add https://github.com/vercel-labs/skills` | find-skills 等(本仓库已含) |
 | **CCG 附带技能** | https://github.com/fengshao1227/ccg-workflow | 从 CCG 包提取 | git-*/doc-* 技能 7 个(本仓库已含) |
-| **Pi 扩展(自研)** | 本仓库 `pi/agent/extensions/` | 复制到 `{HOME}/.pi/agent/extensions/` 后 `/reload` | auto-session-name(会话自动命名)等 4 个 |
+| **Pi 扩展(orca 集成)** | 本仓库 `pi/agent/extensions/` | 复制到 `{HOME}/.pi/agent/extensions/` 后 `/reload` | orca-agent-status / prefill / titlebar 共 3 个 |
 | **共享技能库** | 本仓库 `skills/`(64 个技能) | 复制到 `{HOME}/.agents/skills/`,各 agent 符号链接引用 | 来源明细见 `skills/SKILLS-SOURCES.md` |
 
 ## C. MCP 服务器源

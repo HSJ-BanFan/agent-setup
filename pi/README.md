@@ -9,7 +9,6 @@ Pi 是终端里的编程智能体(https://github.com/earendil-labs/pi-coding-age
 | `settings.json` | 主配置:默认 provider/模型/主题/技能路径/包列表 | 无 |
 | `auth.example.json` | **默认 provider(opencode-go)的 API key 模板** | ⚠️ 必填 |
 | `models.example.json` | 自定义 provider 模板(ds-proxy → 本地代理) | ⚠️ apiKey 已脱敏 |
-| `auto-session-name.example.json` | 自动命名扩展的 LLM 配置模板 | ⚠️ apiKey 已脱敏 |
 | `open-tui.json` | open-tui 包配置(状态栏段、遥测开关) | 无 |
 | `mcp.example.json` | MCP 服务器模板(GitHub 等) | ⚠️ token 已脱敏 |
 | `agent/extensions/` | 扩展源码(4 个) | 无(已确认无明文 key) |
@@ -69,23 +68,6 @@ npm install -g pi-mcp-adapter pi-subagents pi-web-access context-mode @juiceshar
 
 `settings.json` 默认使用 `opencode-go` provider + `deepseek-v4-flash` 模型。
 `models.json` 模板包含 `ds-proxy`(本地 18318 代理),修改 `apiKey` 为你的实际值即可。
-
-### 5. 自动命名扩展(可选)
-
-`agent/extensions/auto-session-name.ts` 会自动为会话生成标题。
-复制 `auto-session-name.example.json` 到 `~/.pi/agent/auto-session-name.json` 并填入你的 LLM 端点:
-
-```json
-{
-  "enabled": true,
-  "models": [
-    { "baseUrl": "http://127.0.0.1:21434", "apiKey": "YOUR_KEY", "model": "grok-chat-fast", "timeoutMs": 12000 },
-    { "baseUrl": "http://127.0.0.1:18990", "apiKey": "YOUR_KEY", "model": "claude-haiku-4.5", "timeoutMs": 8000 }
-  ]
-}
-```
-
-> 支持多端点 fallback:优先第一个,超时/失败自动切换下一个,全部失败回退启发式截取。
 
 ### 6. 技能
 
