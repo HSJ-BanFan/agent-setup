@@ -23,12 +23,12 @@
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-simplify",
     "npm:@narumitw/pi-plan-mode",
-    "git:github.com/earendil-works/pi-review",
     "npm:pi-open-tui",
     "npm:pi-hashline-edit-pro",
     "npm:@vigolium/piolium",
-    "npm:pi-lens",
-    "npm:@quintinshaw/pi-dynamic-workflows"
+    "npm:@quintinshaw/pi-dynamic-workflows",
+    "git:github.com/earendil-works/pi-review",
+    "npm:pi-lens"
   ],
   "tuiMode": "fullscreen",
   "fullscreenScrollbar": "auto"
