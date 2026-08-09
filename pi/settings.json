@@ -12,8 +12,7 @@
   },
   "skills": [
     "~/.claude/skills",
-    "~/.codex/skills",
-    "-~/.claude/skills/ccg"
+    "~/.codex/skills"
   ],
   "lastChangelogVersion": "0.84.1",
   "packages": [
@@ -25,6 +24,8 @@
     "npm:@narumitw/pi-goal",
     "npm:pi-simplify",
     "npm:@narumitw/pi-plan-mode",
-    "npm:pi-open-tui"
+    "npm:pi-open-tui",
+    "git:github.com/earendil-works/pi-review",
+    "npm:@ogulcancelik/pi-session-recall"
   ]
 }
