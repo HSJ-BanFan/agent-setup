@@ -43,7 +43,6 @@ Pi 的 MCP 配置在 `~/.pi/agent/mcp.json`:
 | `@juicesharp/rpiv-todo` | 任务清单 |
 | `pi-simplify` | 简化输出 |
 | `@narumitw/pi-plan-mode` | 计划模式 |
-| `pi-open-tui` | TUI 增强(header/footer 计量) |
 | `pi-hashline-edit-pro` | 哈希锚定 read/replace(3 字符哈希、碰撞解决、撤销) |
 | `@vigolium/piolium` | 多阶段安全审计(子代理/隔离上下文) |
 | `pi-lens` | LSP 诊断/类型检查/ast-grep 结构规则/依赖图(编辑后自动反馈) |

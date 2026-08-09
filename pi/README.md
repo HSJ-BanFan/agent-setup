@@ -61,7 +61,7 @@ cp pi/agent/extensions/*.ts ~/.pi/agent/extensions/
 
 ```bash
 pi  # 首次启动时按提示安装,或手动:
-pi install npm:pi-mcp-adapter pi-subagents pi-web-access context-mode @juicesharp/rpiv-todo pi-simplify @narumitw/pi-plan-mode pi-open-tui
+pi install npm:pi-mcp-adapter pi-subagents pi-web-access context-mode @juicesharp/rpiv-todo pi-simplify @narumitw/pi-plan-mode
 pi install git:github.com/earendil-works/pi-review
 pi install npm:pi-hashline-edit-pro @vigolium/piolium
 pi install npm:pi-lens   # 注意:需先装 @ast-grep/cli-win32-x64-msvc 平台包(见下)
