@@ -21,7 +21,10 @@
     "npm:context-mode",
     "npm:pi-hashline-edit-pro",
     "git:github.com/earendil-works/pi-review",
-    "npm:pi-open-tui"
+    "npm:pi-open-tui",
+    "npm:pi-web-access",
+    "npm:pi-simplify",
+    "npm:@ff-labs/pi-fff"
   ],
   "tuiMode": "fullscreen",
   "fullscreenScrollbar": "auto"
