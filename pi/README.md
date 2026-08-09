@@ -78,6 +78,6 @@ pi install git:github.com/earendil-works/pi-review
 Pi 通过 `settings.json` 的 `skills` 数组加载技能(指向 `~/.claude/skills`、`~/.codex/skills`)。
 这两个目录在本机是指向 `~/.agents/skills/` 的符号链接,见根目录 `skills/README.md`。
 
-> ⚠️ flag 冲突提示:@plannotator/pi-extension 与 @narumitw/pi-plan-mode 都注册 `--plan` flag,
+⚠️ flag 冲突备忘:@plannotator/pi-extension 曾与 @narumitw/pi-plan-mode 的 `--plan` flag 冲突(现已均移除)。
 > 二者不可共存(pi 会拒绝启动)。本配置保留 plan-mode。
 > 另:rtk-optimizer 需 RTK 二进制(`cargo install rtk`);fff 建议设置 `FFF_ENABLE_HOME_SCAN=0`。
