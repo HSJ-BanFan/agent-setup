@@ -1,7 +1,7 @@
 # Agent 配置仓库 (agent-setup)
 
 本仓库是 **AI 开发环境配置技能包**:跨机器快速复刻完整环境。
-包含 4 个主要 agent 的配置、64 个共享技能、MCP/插件方案和 Docker AI 基础设施模板,
+包含 4 个主要 agent 的配置、29 个共享技能(mattpocock+orca)、MCP/插件方案和 Docker AI 基础设施模板,
 并内置**配置技能**(`SKILL.md`),让任意 AI agent(pi / opencode / Claude Code / Codex)
 在陌生机器上自动引导完成配置。
 
@@ -29,7 +29,7 @@
 | **OpenCode** | opencode.jsonc(MCP 服务器) | [`opencode/`](opencode/) |
 | **CC-Switch** | 供应商切换工具配置说明 | [`cc-switch/`](cc-switch/) |
 | **Orca** | Agent 编排工具:hooks、cli 技能、安装说明 | [`orca/`](orca/) |
-| **共享技能** | 64 个跨 agent 技能 | [`skills/`](skills/) |
+| **共享技能** | 29 个(mattpocock 25 + orca 4) | [`skills/`](skills/) |
 | **AI 基础设施** | 9router / grok2api / kiro-rs / cli-proxy-api / cpa-manager | [`infra/`](infra/) |
 
 ## 快速开始(新机器)
@@ -62,7 +62,7 @@ cd agent-setup
 ├─────────────────────────────────────────────────────┤
 │            Orca(agent 编排:worktree/终端/hooks)     │
 ├─────────────────────────────────────────────────────┤
-│           共享技能库 ~/.agents/skills(64 个)         │
+│           共享技能库 ~/.agents/skills(29 个)         │
 ├─────────────────────────────────────────────────────┤
 │     Docker AI 基础设施                              │
 │  9router(20128)  grok2api(21434,免费grok)           │

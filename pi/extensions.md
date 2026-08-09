@@ -30,7 +30,7 @@ Pi 的 MCP 配置在 `~/.pi/agent/mcp.json`:
 
 配置后需在 pi 内重启或 `/reload` 生效。`mcp.json` 中的 `imports` 可用于引入共享 MCP 定义。
 
-## Pi 包(Packages)
+## Pi 包(Packages)— 常驻 6 个
 
 `settings.json` 中 `packages` 列表(全部为 npm 包,地址即包名):
 
@@ -38,18 +38,16 @@ Pi 的 MCP 配置在 `~/.pi/agent/mcp.json`:
 |---|---|
 | `pi-mcp-adapter` | MCP 适配 |
 | `pi-subagents` | 子代理 |
-| `pi-web-access` | 网页访问 |
 | `context-mode` | 上下文管理模式 |
-| `@juicesharp/rpiv-todo` | 任务清单 |
-| `pi-simplify` | 简化输出 |
-| `@narumitw/pi-plan-mode` | 计划模式 |
 | `pi-hashline-edit-pro` | 哈希锚定 read/replace(3 字符哈希、碰撞解决、撤销) |
-| `@vigolium/piolium` | 多阶段安全审计(子代理/隔离上下文) |
-| `pi-lens` | LSP 诊断/类型检查/ast-grep 结构规则/依赖图(编辑后自动反馈) |
-| `earendil-works/pi-review` | 代码审查(/review 命令,官方) |
-| `@quintinshaw/pi-dynamic-workflows` | 动态工作流:fan-out 子代理/模型路由/worktree 隔离/记账,TUI + /deep-research 等 5 个工作流 |
+| `earendil-works/pi-review` | 代码审查(/review,官方) |
+| `pi-open-tui` | TUI 增强(header/footer/editor) |
 
-> 安装方式:`pi install`(而非 npm),pi-review 为 git 源:`pi install git:github.com/earendil-works/pi-review`。
+> 安装方式:`pi install`(而非 npm)。pi-review 为 git 源:
+> `pi install git:github.com/earendil-works/pi-review`。
+>
+> **精简原则**:仅常驻这 6 个,重型工具按需 `pi -e <package>` 临时加载
+> (如安全审计 `pi -e npm:@vigolium/piolium`、动态工作流 `pi -e npm:@quintinshaw/pi-dynamic-workflows`)。
 
 ## Pi 技能
 
