@@ -35,7 +35,15 @@ if (Test-Path "$HOME_DIR\.pi\agent\settings.json") {
 }
 Copy-Item "$REPO\pi\settings.json" "$HOME_DIR\.pi\agent\settings.json" -Force
 Copy-Item "$REPO\pi\agent\extensions\*.ts" "$HOME_DIR\.pi\agent\extensions\" -Force
-Write-Host "  ✓ settings.json + 扩展"
+Copy-Item "$REPO\pi\open-tui.json" "$HOME_DIR\.pi\agent\open-tui.json" -Force
+if (-not (Test-Path "$HOME_DIR\.pi\agent\auth.json")) {
+    Copy-Item "$REPO\pi\auth.example.json" "$HOME_DIR\.pi\agent\auth.json" -Force
+    Write-Host "  ⚠ 已创建 auth.json 模板,请填入 opencode-go 的 API key"
+}
+if (-not (Test-Path "$HOME_DIR\.pi\agent\mcp.json")) {
+    Copy-Item "$REPO\pi\mcp.example.json" "$HOME_DIR\.pi\agent\mcp.json" -Force
+}
+Write-Host "  ✓ settings.json + 扩展 + open-tui + auth/mcp 模板"
 if (-not (Test-Path "$HOME_DIR\.pi\agent\models.json")) {
     Copy-Item "$REPO\pi\models.example.json" "$HOME_DIR\.pi\agent\models.json" -Force
     Write-Host "  ✓ models.json (模板,请填入 apiKey)"

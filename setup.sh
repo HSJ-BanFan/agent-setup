@@ -36,7 +36,15 @@ if [ -f "$HOME_DIR/.pi/agent/settings.json" ]; then
 fi
 cp "$REPO/pi/settings.json" "$HOME_DIR/.pi/agent/settings.json"
 cp "$REPO/pi/agent/extensions/"*.ts "$HOME_DIR/.pi/agent/extensions/"
-echo "  ✓ settings.json + 扩展"
+cp "$REPO/pi/open-tui.json" "$HOME_DIR/.pi/agent/open-tui.json"
+if [ ! -f "$HOME_DIR/.pi/agent/auth.json" ]; then
+  cp "$REPO/pi/auth.example.json" "$HOME_DIR/.pi/agent/auth.json"
+  echo "  ⚠ 已创建 auth.json 模板,请填入 opencode-go 的 API key"
+fi
+if [ ! -f "$HOME_DIR/.pi/agent/mcp.json" ]; then
+  cp "$REPO/pi/mcp.example.json" "$HOME_DIR/.pi/agent/mcp.json"
+fi
+echo "  ✓ settings.json + 扩展 + open-tui + auth/mcp 模板"
 if [ ! -f "$HOME_DIR/.pi/agent/models.json" ]; then
   cp "$REPO/pi/models.example.json" "$HOME_DIR/.pi/agent/models.json"
   echo "  ✓ models.json (模板,请填入 apiKey)"
