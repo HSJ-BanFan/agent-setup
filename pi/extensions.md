@@ -44,7 +44,7 @@ Pi 的 MCP 配置在 `~/.pi/agent/mcp.json`:
 | `@narumitw/pi-goal` | 目标跟踪 |
 | `pi-simplify` | 简化输出 |
 | `@narumitw/pi-plan-mode` | 计划模式 |
-| `pi-codeui` | TUI 工作区增强:Git 变更面板/diff/搜索/Vim(对话优先,接近 grok-build 体验) |
+| `pi-open-tui` | TUI 增强(header/footer 计量) |
 | `earendil-works/pi-review` | 代码审查(/review 命令,官方) |
 | `@ogulcancelik/pi-session-recall` | 历史会话回忆(session_query 工具) |
 

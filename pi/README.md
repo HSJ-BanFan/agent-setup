@@ -61,10 +61,9 @@ cp pi/agent/extensions/*.ts ~/.pi/agent/extensions/
 
 ```bash
 pi  # 首次启动时按提示安装,或手动:
-pi install npm:pi-mcp-adapter pi-subagents pi-web-access context-mode @juicesharp/rpiv-todo @narumitw/pi-goal pi-simplify @narumitw/pi-plan-mode
+pi install npm:pi-mcp-adapter pi-subagents pi-web-access context-mode @juicesharp/rpiv-todo @narumitw/pi-goal pi-simplify @narumitw/pi-plan-mode pi-open-tui
 pi install git:github.com/earendil-works/pi-review
 pi install npm:@ogulcancelik/pi-session-recall
-pi install npm:pi-codeui   # TUI 工作区(替换 pi-open-tui,二者互斥)
 ```
 
 ### 5. 配置模型
