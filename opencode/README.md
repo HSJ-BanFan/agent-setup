@@ -6,7 +6,7 @@ OpenCode(https://opencode.ai)是终端 AI 编码助手。
 
 | 文件 | 说明 | 敏感内容 |
 |---|---|---|
-| `opencode.jsonc` | 全局配置:MCP 服务器(context7、gh_grep) | 无 |
+| `opencode.jsonc` | 全局配置:模型 provider(OpenCode Go,占位 key)、远程 MCP(context7、gh_grep) | ⚠️ `apiKey` 为占位符,需替换为真实 key |
 
 ## 复刻步骤
 
@@ -29,12 +29,20 @@ mkdir -p ~/.config/opencode
 cp opencode/opencode.jsonc ~/.config/opencode/opencode.jsonc
 ```
 
-### 3. 登录模型提供商
+### 3. 配置模型 provider(重要)
 
-```bash
-opencode auth login
-# 选择你的 provider(如 OpenAI 兼容网关),填入 API key
+`opencode.jsonc` 中的 `provider.opencode-go` 是 OpenAI 兼容网关(OpenCode Go)。
+把 `apiKey` 占位符替换为你的真实 key:
+
+```jsonc
+"options": {
+  "baseURL": "https://opencode.ai/zen/go/v1",
+  "apiKey": "你的真实key"        // 替换 YOUR_OPENCODE_API_KEY
+}
 ```
+
+> **安全**:真实 key 仅存在于本地,勿提交到仓库。
+> 也可用 `opencode auth login` 选择其他 provider(如官方 OpenAI/Anthropic)。
 
 ### 4. MCP 服务器
 

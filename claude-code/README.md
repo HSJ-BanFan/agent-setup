@@ -1,14 +1,15 @@
 # Claude Code 配置复刻
 
 本目录包含 Claude Code 的配置文件模板。API 密钥已脱敏,需要在新机器上重新配置。
+> **不含代理配置**:本仓库不包含任何代理/中转端点或 token(如 `ANTHROPIC_BASE_URL` / `ANTHROPIC_AUTH_TOKEN`)。
 
 ## 文件说明
 
 | 文件 | 说明 | 敏感内容 |
 |---|---|---|
-| `settings.json` | 主配置:环境变量(模型映射)、claude-hud 插件、主题 | ⚠️ 需按新环境调整 |
-| `plugins/known_marketplaces.json` | 插件市场注册(claude-hud) | 无 |
-| `plugins/installed_plugins.json` | 已安装插件清单 | 无 |
+| `settings.json` | 主配置:模型、claude-hud 插件、hooks、权限、状态栏 | 无(占位路径用 `$HOME` 表达) |
+| `plugins/known_marketplaces.json` | 插件市场注册(claude-hud / claude-plugins-official) | 无 |
+| `plugins/installed_plugins.json` | 已安装插件清单(claude-hud 0.6.0) | 无 |
 
 ## 复刻步骤
 
@@ -28,6 +29,8 @@ Copy-Item claude-code/settings.json "$env:USERPROFILE\.claude\settings.json"
 mkdir -p ~/.claude && cp claude-code/settings.json ~/.claude/settings.json
 ```
 
+> `settings.json` 中的 hook/statusLine 使用 `$HOME` 表达用户目录,复制后无需改动即可在本机生效。
+
 ### 3. 安装 claude-hud 插件
 
 ```bash
@@ -38,33 +41,48 @@ claude plugin install claude-hud
 > 或在 Claude Code 内输入 `/plugin marketplace add jarrodwatts/claude-hud` 后安装。
 > 插件启用后会自动出现在 `enabledPlugins`,无需手动编辑。
 
-### 4. 配置模型端点(重要)
+### 4. 登录模型
 
-`settings.json` 中的 `env` 段按你的模型路由方案调整:
-
-```json
-"env": {
-  "ANTHROPIC_BASE_URL": "http://127.0.0.1:15721",   // cc-switch 本地代理(或你的中转地址)
-  "ANTHROPIC_AUTH_TOKEN": "PROXY_MANAGED",          // cc-switch 托管时自动写入
-  "ANTHROPIC_DEFAULT_OPUS_MODEL_NAME": "deepseek-v4-flash"  // 模型映射
-}
-```
-
-- **使用 cc-switch**:启动 cc-switch → 添加 Claude provider → 切换,它会自动写回 env
-- **使用官方账号**:删除 `env` 段,运行 `claude` 登录官方账号
-- **直连中转**:把 `ANTHROPIC_BASE_URL` 和 `ANTHROPIC_AUTH_TOKEN` 改成你的中转配置
-
-### 5. statusLine(claude-hud 状态栏)
-
-`statusLine.command` 中的 node 路径 `"/e/Program Files/nodejs/node"` 是本机路径。
-新机器上若 node 不在该路径,改用 `node` 命令或更新路径:
+默认使用官方账号登录即可:
 
 ```bash
-# 查看 node 路径
-which node   # Windows Git Bash 下
+claude
+# 首次运行按提示 /login 授权
 ```
 
-### 6. 技能(共享技能库)
+> 若需经网关/中转路由模型(如 `ANTHROPIC_BASE_URL` + `ANTHROPIC_AUTH_TOKEN`),
+> 按你的方案在 `settings.json` 的 `env` 段补充,或使用 [cc-switch](../cc-switch/README.md) 自动写回。
+> **本仓库默认不含代理 env,请勿提交真实端点/token。**
+
+### 5. 启用 hooks(可选)
+
+`settings.json` 中的 `hooks` 段包含两类:
+
+| 来源 | 作用 | 依赖文件 |
+|---|---|---|
+| **CCG** | 会话上下文注入 / 技能路由 / 工作流状态 | `~/.claude/hooks/ccg/*.js`(由 CCG npm 包安装) |
+| **Orca** | 向 Orca 上报 agent 事件(权限/工具调用/停止等) | `~/.orca/agent-hooks/claude-hook.sh`(由 Orca 生成) |
+
+> 未安装对应组件时,hook 命令会自动跳过(`if [ -f ... ]` 守卫),不影响 Claude Code 运行。
+
+### 6. 权限与安全设置
+
+- `permissions.allow`: 白名单命令(示例含 `Bash(*codeagent-wrapper*)`)
+- `skipDangerousModePermissionPrompt: true`: 危险模式免确认
+- `includeCoAuthoredBy: false`: 提交不带 co-authored 署名
+
+按需调整,不必照抄。
+
+### 7. statusLine(claude-hud 状态栏)
+
+`statusLine.command` 中的 node 路径 `/opt/homebrew/bin/node` 是本机路径。
+新机器上若 node 不在此路径,改用 `which node` 的结果:
+
+```bash
+which node   # 复制到 command 中的 exec 路径
+```
+
+### 8. 技能(共享技能库)
 
 Claude Code 通过符号链接引用 `~/.agents/skills/` 下的技能:
 

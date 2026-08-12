@@ -16,15 +16,17 @@
   ```json
   "enabledPlugins": { "claude-hud@claude-hud": true }
   ```
-- **状态栏配置**(settings.json 中 `statusLine.command`):
+  > 当前安装版本: **0.6.0**(见 `plugins/installed_plugins.json`)。
+- **状态栏配置**(settings.json 中 `statusLine.command`,此处为 macOS/Linux 变体):
   ```json
   "statusLine": {
     "type": "command",
-    "command": "cols=${COLUMNS:-}; case \"$cols\" in \"\"|*[!0-9]*) cols=$(stty size 2>/dev/null </dev/tty | awk '{print $2}');; esac; case \"$cols\" in \"\"|*[!0-9]*) cols=120;; esac; export COLUMNS=$(( cols > 4 ? cols - 4 : 1 )); plugin_dir=$(ls -1d \"${CLAUDE_CONFIG_DIR:-$HOME/.claude}\"/plugins/cache/*/claude-hud/*/ 2>/dev/null | sort -V | tail -1); plugin_win=$(cygpath -m \"$plugin_dir\"); exec \"<NODE路径>\" \"${plugin_win}dist/index.js\"",
+    "command": "bash -c 'cols=${COLUMNS:-}; case \"$cols\" in \"\"|*[!0-9]*) cols=$(stty size </dev/tty 2>/dev/null | awk '\"'\"'{print $2}'\"'\"');; esac; case \"$cols\" in \"\"|*[!0-9]*) cols=120;; esac; export COLUMNS=$(( cols > 4 ? cols - 4 : 1 )); plugin_dir=$(ls -d \"${CLAUDE_CONFIG_DIR:-$HOME/.claude}\"/plugins/cache/*/claude-hud/*/ 2>/dev/null | awk -F/ '\"'\"'{ print $(NF-1) \"\\t\" $(0) }'\"'\"' | grep -E '\"'\"'^[0-9]+\\.[0-9]+\\.[0-9]+[[:space:]]'\"'\"' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1 | cut -f2-); exec \"/opt/homebrew/bin/node\" \"${plugin_dir}dist/index.js\"'",
     "refreshInterval": 5
   }
   ```
-  > `<NODE路径>` 替换为本机 node 路径(`which node` 查看;Windows Git Bash 下如 `/e/Program Files/nodejs/node`)
+  > node 路径 `/opt/homebrew/bin/node` 为本机路径,新机器替换为 `which node` 的结果。
+  > Windows Git Bash 可改用仓库早期版本的 `cygpath -m` + `/e/Program Files/nodejs/node` 变体。
 
 ### 2. claude-plugins-official — Claude 官方插件集
 

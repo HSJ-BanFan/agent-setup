@@ -26,7 +26,7 @@
 | **Claude Code** | settings.json、claude-hud 插件、MCP 服务器 | [`claude-code/`](claude-code/) |
 | **Codex** | config.toml、auth 模板、插件 | [`codex/`](codex/) |
 | **Pi** | settings.json、models、4 个扩展、MCP、包列表 | [`pi/`](pi/) |
-| **OpenCode** | opencode.jsonc(MCP 服务器) | [`opencode/`](opencode/) |
+| **OpenCode** | opencode.jsonc(provider 模板 + MCP 服务器) | [`opencode/`](opencode/) |
 | **CC-Switch** | 供应商切换工具配置说明 | [`cc-switch/`](cc-switch/) |
 | **Orca** | Agent 编排工具:hooks、cli 技能、安装说明 | [`orca/`](orca/) |
 | **共享技能** | 29 个(mattpocock 25 + orca 4) | [`skills/`](skills/) |

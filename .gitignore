@@ -4,6 +4,9 @@
 **/*.env
 **/*.env.*
 
+# 代理客户端本地配置(不推送)
+clash-verge/
+
 # 系统/编辑器文件
 .DS_Store
 Thumbs.db
