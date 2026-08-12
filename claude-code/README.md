@@ -9,7 +9,7 @@
 |---|---|---|
 | `settings.json` | 主配置:模型、claude-hud 插件、hooks、权限、状态栏 | 无(占位路径用 `$HOME` 表达) |
 | `plugins/known_marketplaces.json` | 插件市场注册(claude-hud / claude-plugins-official) | 无 |
-| `plugins/installed_plugins.json` | 已安装插件清单(claude-hud 0.6.0) | 无 |
+| `plugins/installed_plugins.json` | 已安装插件清单(15 个,含官方插件集) | 无 |
 
 ## 复刻步骤
 
@@ -31,15 +31,35 @@ mkdir -p ~/.claude && cp claude-code/settings.json ~/.claude/settings.json
 
 > `settings.json` 中的 hook/statusLine 使用 `$HOME` 表达用户目录,复制后无需改动即可在本机生效。
 
-### 3. 安装 claude-hud 插件
+### 3. 安装插件(两个市场)
 
 ```bash
+# 添加两个市场
 claude plugin marketplace add jarrodwatts/claude-hud
+claude plugin marketplace add anthropics/claude-plugins-official
+
+# 安装插件(15 个,见 plugins/installed_plugins.json)
 claude plugin install claude-hud
+claude plugin install skill-creator@claude-plugins-official
+claude plugin install claude-md-management@claude-plugins-official
+claude plugin install code-simplifier@claude-plugins-official
+claude plugin install frontend-design@claude-plugins-official
+claude plugin install context7@claude-plugins-official
+claude plugin install github@claude-plugins-official
+claude plugin install playwright@claude-plugins-official
+claude plugin install serena@claude-plugins-official
+claude plugin install chrome-devtools-mcp@claude-plugins-official
+claude plugin install typescript-lsp@claude-plugins-official
+claude plugin install pyright-lsp@claude-plugins-official
+claude plugin install gopls-lsp@claude-plugins-official
+claude plugin install jdtls-lsp@claude-plugins-official
+claude plugin install security-guidance@claude-plugins-official
 ```
 
-> 或在 Claude Code 内输入 `/plugin marketplace add jarrodwatts/claude-hud` 后安装。
-> 插件启用后会自动出现在 `enabledPlugins`,无需手动编辑。
+> 或在 Claude Code 内 `/plugin marketplace add ...` 后安装。
+> 插件启用后会自动出现在 `enabledPlugins`。
+> `github` 插件需配 `GITHUB_PERSONAL_ACCESS_TOKEN`(**敏感,勿提交仓库**)。
+> 各插件用途与配置见 [plugins.md](plugins.md)。
 
 ### 4. 登录模型
 
@@ -81,6 +101,10 @@ claude
 ```bash
 which node   # 复制到 command 中的 exec 路径
 ```
+
+命令末尾的 `--extra-cmd "echo Happy coding!"` 显示自定义文案,
+需在 `env` 设 `CLAUDE_HUD_ALLOW_EXTRA_CMD=1` 才生效。
+Windows Git Bash 变体(用 `cygpath -m` + Windows node 路径)见 [plugins.md](plugins.md)。
 
 ### 8. 技能(共享技能库)
 
