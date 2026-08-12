@@ -47,18 +47,21 @@
 | **code-simplifier** | agent | 代码简化重构 |
 | **frontend-design** | skill | 生产级前端界面设计 |
 | **context7** | MCP | 文档实时查询(匿名可用) |
-| **github** | MCP | 官方 GitHub MCP(需 token) |
-| **playwright** | MCP | E2E 测试/浏览器自动化 |
-| **serena** | MCP | 语义代码搜索 |
-| **chrome-devtools-mcp** | skills(6) | 控制真实 Chrome/性能调试 |
+| **github** | MCP | 官方 GitHub MCP(需 token) ⚠️默认禁用 |
+| **playwright** | MCP | E2E 测试/浏览器自动化 ⚠️默认禁用 |
+| **serena** | MCP | 语义代码搜索 ⚠️默认禁用 |
+| **chrome-devtools-mcp** | skills(6) | 控制真实 Chrome/性能调试 ⚠️默认禁用 |
 | **typescript-lsp** | LSP | TypeScript 代码智能 |
 | **pyright-lsp** | LSP | Python 代码智能 |
 | **gopls-lsp** | LSP | Go 代码智能 |
 | **jdtls-lsp** | LSP | Java 代码智能 |
 | **security-guidance** | hooks | AI 代码安全审查(零常驻) |
 
+> **默认禁用**(`enabledPlugins` 置 false):`github`、`playwright`、`serena`、`chrome-devtools-mcp`。
+> 这四个均为纯 MCP(或 MCP+skills)插件,默认关闭可省约 23k 上下文(MCP 工具按代理环境全量加载)。
+> 需要时在 `/plugin` 里 toggle 启用,或改 `enabledPlugins` 为 true。
 > **github 插件**是远程 HTTP MCP(`https://api.githubcopilot.com/mcp/`),
-> 需在 `env` 设 `GITHUB_PERSONAL_ACCESS_TOKEN`(可用 `gh auth token` 获取)。
+> 启用后需在 `env` 设 `GITHUB_PERSONAL_ACCESS_TOKEN`(可用 `gh auth token` 获取)。
 > ⚠️ **该 token 敏感,请勿提交仓库。**
 > **security-guidance** 前置:Claude Code ≥2.1.144、Python 3.8+;审查走 `ANTHROPIC_BASE_URL`。
 > LSP 各自启动一个后台语言服务器进程,不用对应语言时可 `enabledPlugins` 置 false 关闭。

@@ -59,6 +59,7 @@ claude plugin install security-guidance@claude-plugins-official
 > 或在 Claude Code 内 `/plugin marketplace add ...` 后安装。
 > 插件启用后会自动出现在 `enabledPlugins`。
 > `github` 插件需配 `GITHUB_PERSONAL_ACCESS_TOKEN`(**敏感,勿提交仓库**)。
+> **默认禁用 4 个**(`github`/`playwright`/`serena`/`chrome-devtools-mcp`,settings.json 中为 false)以省上下文,需要时在 `/plugin` 里启用。
 > 各插件用途与配置见 [plugins.md](plugins.md)。
 
 ### 4. 登录模型
