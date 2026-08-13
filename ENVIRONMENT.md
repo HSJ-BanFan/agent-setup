@@ -8,6 +8,7 @@
 | 类别 | 内容 | 复刻方式 |
 |---|---|---|
 | Agent 配置 | Claude Code / Codex / Pi / OpenCode 的配置模板 | 复制 + 填 key |
+| DSH(DeepSeek Harness) | settings.yaml + cordis.patch.yml(3 MCP)+ 49 技能 | `dsh/install.ps1` |
 | 插件 | claude-hud(含 marketplace 注册与状态栏方案) | 命令安装 |
 | MCP | GitHub / mcp-router / context7 / gh_grep 方案 | 声明 + 填 token |
 | 扩展 | Pi 的 3 个扩展(orca 集成) | 复制 + `/reload` |
@@ -38,16 +39,3 @@
 | **本地项目路径** | 各配置中的 `trusted projects`、工作目录需按新机器修改 |
 | **环境变量(系统级)** | 如 `GGR_AGENT_*`(pi 模型路由)等,按新机器 provider 重新设置 |
 | **Docker 数据卷** | 容器内积累的统计/日志/账号池数据 |
-
-## 复刻后仍需人工确认的"体验项"
-
-- 免费 grok 池(`grok-chat-fast`)可用性取决于 grok2api 容器内的账号池状态
-- kiro-rs 本地模型首次推理可能需要加载时间
-- Windows 符号链接需要管理员或开发者模式
-- 网络环境(代理)配置需按新机器调整
-
-## 结论
-
-本仓库保证:**工具链、配置结构、插件/扩展/MCP 方案、技能库、基础设施编排**
-一次性就位;密钥/账号/个人数据部分按上述清单手动补齐即可,
-预计 30-60 分钟完成整套环境搭建(相比从零配置节省数小时)。

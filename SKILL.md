@@ -34,7 +34,8 @@ license: MIT
 | "配置/复刻环境"、"换电脑" | 完整流程:识别平台 → 逐工具安装 → 配置 → 验证 |
 | "安装/配置 XXX"(单工具) | 查 `skill/routing.md` 对应路径 |
 | "部署 docker 服务" | 走 `infra/` 流程(9router / grok2api / kiro-rs / cli-proxy-api) |
-| "接入 MCP" | 查 `claude-code/plugins.md` 与 `pi/extensions.md` 的 MCP 章节 |
+| "接入 MCP" | 查 `claude-code/plugins.md`、`pi/extensions.md` 的 MCP 章节;DSH 走 `dsh/cordis.patch.yml` |
+| "配置/复刻 DSH(DeepSeek Harness)" | 运行 `dsh/install.ps1`(配置 + 49 技能 + MCP),按输出指引填密钥 |
 | "同步技能" | 走 `skills/` 流程(复制 + 符号链接) |
 
 ### 3. 执行通用流程
@@ -58,16 +59,3 @@ license: MIT
 - [ ] docker 容器(如部署)全部 `Up` 状态
 
 ## 关键提示
-
-- **不要硬编码密钥**:所有配置模板用 `YOUR_*_KEY_HERE` 占位,引导用户填入
-- **先备份再覆盖**:修改用户已有配置前先复制 `.bak-<时间戳>`
-- **Windows 符号链接**:`mklink /D` 需要管理员或开发者模式,无权限时退化为复制
-- **国内网络**:GitHub 克隆失败时提示用户配置代理(`export HTTPS_PROXY=...`),不要改用未经验证的镜像源
-- **不确定就问**:涉及密钥、路径、供应商选择时,先问用户再操作
-
-## 技能自举
-
-本仓库即技能本体,支持直接作为 skill 使用:
-
-- **Pi**:`pi` 的 settings.json 中 skills 数组加入本仓库路径,或在对话中直接读取本文件
-- **OpenCode / Claude Code / Codex**:项目级指令机制自动读取根 `AGENTS.md` / `SKILL.md`

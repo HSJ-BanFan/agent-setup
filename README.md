@@ -29,6 +29,7 @@
 | **OpenCode** | opencode.jsonc(provider 模板 + MCP 服务器) | [`opencode/`](opencode/) |
 | **CC-Switch** | 供应商切换工具配置说明 | [`cc-switch/`](cc-switch/) |
 | **Orca** | Agent 编排工具:hooks、cli 技能、安装说明 | [`orca/`](orca/) |
+| **DSH(DeepSeek Harness)** | settings.yaml、3 个 MCP 服务器、49 个技能安装方案 | [`dsh/`](dsh/) |
 | **共享技能** | 29 个(mattpocock 25 + orca 4) | [`skills/`](skills/) |
 | **AI 基础设施** | 9router / grok2api / kiro-rs / cli-proxy-api / cpa-manager | [`infra/`](infra/) |
 
@@ -58,17 +59,3 @@ cd agent-setup
 ```
 ┌─────────────────────────────────────────────────────┐
 │            AI 开发环境(Claude Code / Codex /         │
-│             Pi / OpenCode / CC-Switch)              │
-├─────────────────────────────────────────────────────┤
-│            Orca(agent 编排:worktree/终端/hooks)     │
-├─────────────────────────────────────────────────────┤
-│           共享技能库 ~/.agents/skills(29 个)         │
-├─────────────────────────────────────────────────────┤
-│     Docker AI 基础设施                              │
-│  9router(20128)  grok2api(21434,免费grok)           │
-│  kiro-rs(18990,本地模型)  cli-proxy-api(18318)      │
-│  cpa-manager(18317)                                 │
-└─────────────────────────────────────────────────────┘
-```
-
-> 基础设施各服务的源仓库、端口与部署方式见 [`skill/tool-index.md`](skill/tool-index.md) §D。

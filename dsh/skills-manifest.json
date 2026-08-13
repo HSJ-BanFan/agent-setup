@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "note": "DSH/agent 技能清单。packaged:仓库内已适配版本;git:稀疏检出自上游仓库。与 ~/.agents/skills 对齐(49 个 = 仓库 skills/ 29 + packaged 4 + git 16)",
+  "packaged": [
+    {
+      "name": "claude-md-improver",
+      "source": "anthropics/claude-plugins-official (适配:glob 工具)"
+    },
+    {
+      "name": "claude-md-revise",
+      "source": "anthropics/claude-plugins-official /revise-claude-md 命令转化"
+    },
+    {
+      "name": "context-md",
+      "source": "amajorai/context.md (适配:todo_write/ask_user_question)"
+    },
+    {
+      "name": "context-md-update",
+      "source": "amajorai/context.md (适配:todo_write/ask_user_question)"
+    }
+  ],
+  "git": [
+    {
+      "id": "emilkowalski-skills",
+      "repo": "https://github.com/emilkowalski/skills.git",
+      "prefix": "skills",
+      "skills": [
+        "animation-vocabulary",
+        "apple-design",
+        "emil-design-eng",
+        "find-animation-opportunities",
+        "improve-animations",
+        "review-animations"
+      ]
+    },
+    {
+      "id": "greensock-gsap-skills",
+      "repo": "https://github.com/greensock/gsap-skills.git",
+      "prefix": "skills",
+      "skills": [
+        "gsap-core",
+        "gsap-frameworks",
+        "gsap-performance",
+        "gsap-plugins",
+        "gsap-react",
+        "gsap-scrolltrigger",
+        "gsap-timeline",
+        "gsap-utils"
+      ]
+    },
+    {
+      "id": "vercel-labs-skills",
+      "repo": "https://github.com/vercel-labs/skills.git",
+      "prefix": "skills",
+      "skills": [
+        "find-skills"
+      ]
+    },
+    {
+      "id": "anthropics-claude-code",
+      "repo": "https://github.com/anthropics/claude-code.git",
+      "prefix": "plugins/frontend-design/skills",
+      "skills": [
+        "frontend-design"
+      ]
+    }
+  ]
+}
