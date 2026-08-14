@@ -39,3 +39,13 @@
 | **本地项目路径** | 各配置中的 `trusted projects`、工作目录需按新机器修改 |
 | **环境变量(系统级)** | 如 `GGR_AGENT_*`(pi 模型路由)等,按新机器 provider 重新设置 |
 | **Docker 数据卷** | 容器内积累的统计/日志/账号池数据 |
+
+## 🔐 本次私有迁移归档
+
+当前 Private 仓库的 `private/encrypted/` 额外保存了三份 `age` 密文：
+
+- grok2api 三类可重新导入账号,共 3,532 个,不依赖旧 Docker 卷。
+- grok-register 一致性数据库备份与批量注册账号材料。
+- MuMu 部落冲突助手 QQ、580 项配置、脚本包与 APK。
+
+它们不是通用配置模板；解密依赖用户单独离线保存的 SSH 私钥。详细恢复方式见 `private/README.md`。

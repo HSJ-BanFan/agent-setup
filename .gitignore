@@ -4,6 +4,14 @@
 **/*.env
 **/*.env.*
 
+# 私有归档解密后的临时明文——绝不提交
+private/decrypted/
+private/tmp/
+private/**/*.tar
+private/**/*.db
+private/**/*.sqlite
+private/**/*.sqlite3
+
 # 代理客户端本地配置(不推送)
 clash-verge/
 
