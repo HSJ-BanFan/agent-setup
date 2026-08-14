@@ -5,8 +5,9 @@
 并内置**配置技能**(`SKILL.md`),让任意 AI agent(pi / opencode / Claude Code / Codex)
 在陌生机器上自动引导完成配置。
 
-> ⚠️ **安全声明**:本仓库已做脱敏处理,不含任何 API 密钥。
-> 所有 `YOUR_*_KEY_HERE` / `YOUR_API_KEY` 占位符需要在新机器上替换为真实值。
+> ⚠️ **安全声明**:配置模板不含任何明文 API 密钥。
+> `private/` 含真实账号标识与使用 `age` 加密的迁移归档,因此本仓库必须保持 Private。
+> 所有 `YOUR_*_KEY_HERE` / `YOUR_API_KEY` 占位符仍需在新机器上替换为真实值。
 
 ## 给 AI Agent 的入口
 
@@ -32,6 +33,7 @@
 | **DSH(DeepSeek Harness)** | settings.yaml、3 个 MCP 服务器、49 个技能安装方案 | [`dsh/`](dsh/) |
 | **共享技能** | 29 个(mattpocock 25 + orca 4) | [`skills/`](skills/) |
 | **AI 基础设施** | 9router / grok2api / kiro-rs / cli-proxy-api / cpa-manager | [`infra/`](infra/) |
+| **重装迁移资料** | 应用清单、账号标识、加密的 Grok/MuMu 归档、Codex 本地脚本 | [`docs/`](docs/) / [`private/`](private/) / [`scripts/`](scripts/) |
 
 ## 快速开始(新机器)
 
