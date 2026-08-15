@@ -14,7 +14,7 @@
 | 扩展 | Pi 的 3 个扩展(orca 集成) | 复制 + `/reload` |
 | 技能 | 64 个共享技能(完整内容) | 复制到 `~/.agents/skills/` + 符号链接 |
 | Orca | agent-hooks(12 个脚本,无敏感)+ cli 技能 + 安装说明 | 复制到 `~/.orca/agent-hooks/` |
-| 基础设施 | 9router / grok2api / kiro-rs / cli-proxy-api / cpa-manager 部署方案 | 按 `infra/` + tool-index 部署 |
+| 基础设施 | 9router / grok2api / kiro-rs / cli-proxy-api / CPA Manager Plus / 可选 NapCat / Watchtower 部署方案 | 按 `infra/` + tool-index 部署 |
 | 供应商切换 | CC-Switch 应用设置项(代理/插件集成/语言) | 按 `cc-switch/README.md` |
 
 ## ⚠️ 需手动配置(涉及密钥/账号,仓库只给模板)

@@ -31,7 +31,7 @@
 | **Orca** | Agent 编排工具:hooks、cli 技能、安装说明 | [`orca/`](orca/) |
 | **DSH(DeepSeek Harness)** | settings.yaml、3 个 MCP 服务器、49 个技能安装方案 | [`dsh/`](dsh/) |
 | **共享技能** | 29 个(mattpocock 25 + orca 4) | [`skills/`](skills/) |
-| **AI 基础设施** | 9router / grok2api / kiro-rs / cli-proxy-api / cpa-manager | [`infra/`](infra/) |
+| **AI 基础设施** | 9router / grok2api / kiro-rs / cli-proxy-api / CPA Manager Plus / NapCat / Watchtower | [`infra/`](infra/) |
 
 ## 快速开始(新机器)
 

@@ -1,6 +1,6 @@
 {
   "$schema": "./sources.schema.json",
-  "generated": "2026-08-09",
+  "generated": "2026-08-15",
   "agents": {
     "claude-code": { "repo": "https://github.com/anthropics/claude-code", "npm": "@anthropic-ai/claude-code", "configDir": "~/.claude" },
     "codex": { "repo": "https://github.com/openai/codex", "npm": "@openai/codex", "configDir": "~/.codex" },
@@ -22,9 +22,12 @@
   },
   "infra": {
     "9router": { "repo": "https://github.com/decolua/9router", "port": 20128, "deploy": "npm install -g 9router 或 Docker(9router-router)" },
-    "grok2api": { "repo": "https://github.com/chenyme/grok2api", "port": 21434, "deploy": "Docker(grok2api:local)" },
+    "grok2api": { "repo": "https://github.com/chenyme/grok2api", "port": 21434, "deploy": "Docker(ghcr.io/chenyme/grok2api:latest)" },
     "kiro-rs": { "repo": "https://github.com/ZyphrZero/kiro.rs", "port": 18990, "deploy": "Docker(zyphrzero/kiro-rs)" },
-    "cli-proxy-api": { "repo": "https://github.com/router-for-me/CLIProxyAPI", "port": 18318, "deploy": "Docker(eceasy/cli-proxy-api), compose 见 infra/cliproxy/" },
-    "cpa-manager": { "repo": "https://github.com/seakee/CPA-Manager", "port": 18317, "deploy": "Docker(seakee/cpa-manager)" }
+    "cli-proxy-api": { "repo": "https://github.com/router-for-me/CLIProxyAPI", "port": 18318, "deploy": "Docker(eceasy/cli-proxy-api), compose 见 infra/cliproxy/ 或 infra/docker-desktop/" },
+    "cpa-manager": { "repo": "https://github.com/seakee/CPA-Manager", "port": 18317, "deploy": "Docker(seakee/cpa-manager), legacy" },
+    "cpa-manager-plus": { "repo": "https://github.com/seakee/CPA-Manager-Plus", "port": 18317, "deploy": "Docker(seakee/cpa-manager-plus:latest)" },
+    "napcat": { "repo": "https://github.com/NapNeko/NapCat-Docker", "port": 6099, "deploy": "Docker(mlikiowa/napcat-docker:latest), optional qq profile" },
+    "watchtower": { "repo": "https://github.com/containrrr/watchtower", "deploy": "Docker(containrrr/watchtower:latest), label-enable + scope" }
   }
 }

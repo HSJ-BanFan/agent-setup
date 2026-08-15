@@ -3,7 +3,7 @@ name: agent-env-setup
 description: >
   AI 开发环境一键复刻技能。在陌生机器上通过任意 AI agent(pi / opencode / Claude Code / Codex)
   快速、智能地配置完整的 AI 编码环境:安装并配置 Claude Code、Codex、Pi、OpenCode、
-  CC-Switch,部署本地 AI 基础设施(9router / grok2api / kiro-rs / cli-proxy-api / cpa-manager),
+  CC-Switch,部署本地 AI 基础设施(9router / grok2api / kiro-rs / cli-proxy-api / CPA Manager Plus / NapCat / Watchtower),
   接入 MCP 服务器,同步 60+ 共享技能与扩展。
   使用场景:新电脑配置、环境迁移、docker 服务搭建、MCP/插件接入。
 license: MIT
@@ -33,7 +33,7 @@ license: MIT
 |---|---|
 | "配置/复刻环境"、"换电脑" | 完整流程:识别平台 → 逐工具安装 → 配置 → 验证 |
 | "安装/配置 XXX"(单工具) | 查 `skill/routing.md` 对应路径 |
-| "部署 docker 服务" | 走 `infra/` 流程(9router / grok2api / kiro-rs / cli-proxy-api) |
+| "部署 docker 服务" | 走 `infra/` 流程(9router / grok2api / kiro-rs / cli-proxy-api / CPA Manager Plus / NapCat / Watchtower) |
 | "接入 MCP" | 查 `claude-code/plugins.md`、`pi/extensions.md` 的 MCP 章节;DSH 走 `dsh/cordis.patch.yml` |
 | "配置/复刻 DSH(DeepSeek Harness)" | 运行 `dsh/install.ps1`(配置 + 49 技能 + MCP),按输出指引填密钥 |
 | "同步技能" | 走 `skills/` 流程(复制 + 符号链接) |

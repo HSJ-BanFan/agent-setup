@@ -7,7 +7,7 @@ OpenCode、Cursor、Cline 等)读取本文件后,即可在陌生机器上引导�
 
 - **配置模板**:4 个 agent(Claude Code / Codex / Pi / OpenCode)+ CC-Switch 的脱敏配置
 - **共享技能库**:`skills/`(64 个跨 agent 技能)
-- **基础设施说明**:`infra/`(9router / grok2api / kiro-rs / cli-proxy-api / cpa-manager)
+- **基础设施说明**:`infra/`(9router / grok2api / kiro-rs / cli-proxy-api / CPA Manager Plus / NapCat / Watchtower)
 - **配置技能**:`SKILL.md` + `skill/`(tool-index / routing / sources)+ `RULES.md`
 
 ## 作为 agent 如何工作

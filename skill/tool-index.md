@@ -50,11 +50,14 @@
 | 服务 | 源仓库 | 部署方式 | 端口 | 用途 |
 |---|---|---|---|---|
 | **9router** | https://github.com/decolua/9router | `npm install -g 9router` 或 Docker(`9router-router` 镜像) | **20128**(dashboard) | 免费 AI 路由网关:连接 40+ 供应商,RTK 省 token,自动 fallback |
-| **grok2api** | https://github.com/chenyme/grok2api | Docker(`grok2api:local`,宿主机 **21434** → 容器 8000) | **21434** | 免费 Grok 模型池(Web SSO 多账号),OpenAI 兼容 |
+| **grok2api** | https://github.com/chenyme/grok2api | Docker(`ghcr.io/chenyme/grok2api:latest`,宿主机 **21434** → 容器 8000) | **21434** | 免费 Grok 模型池(Web SSO 多账号),OpenAI 兼容 |
 | **kiro-rs** | https://github.com/ZyphrZero/kiro.rs | Docker(`zyphrzero/kiro-rs`,宿主机 **18990** → 容器 8990) | **18990** | 本地 Claude 兼容代理(Rust),1-3s 稳定,适合 fallback |
 | **cli-proxy-api** | https://github.com/router-for-me/CLIProxyAPI | Docker(`eceasy/cli-proxy-api`,宿主机 **18318** → 容器 8317),compose 见本仓库 `infra/cliproxy/` | **18318** | CLI 统一代理:模型前缀路由、配额、用量统计、冷却 |
-| **cpa-manager** | https://github.com/seakee/CPA-Manager | Docker(`seakee/cpa-manager`,宿主机 **18317**) | **18317** | CPA 凭证管理 WebUI(基于 cli-proxy-api) |
+| **CPA Manager Plus** | https://github.com/seakee/CPA-Manager-Plus | Docker(`seakee/cpa-manager-plus:latest`,宿主机 **18317**) | **18317** | CPA 凭证管理与用量 WebUI |
+| **cpa-manager (legacy)** | https://github.com/seakee/CPA-Manager | Docker(`seakee/cpa-manager`),见 `infra/cliproxy/` | **18317** | 旧版 CLIProxyAPI 联动模板,仅兼容已有部署 |
 | **kiro-rs-redis** | https://hub.docker.com/_/redis | Docker(`redis:7-alpine`) | 6379 | kiro-rs 缓存(内部) |
+| **NapCat Docker** | https://github.com/NapNeko/NapCat-Docker | Docker(`mlikiowa/napcat-docker:latest`),Desktop 模板使用 `qq` profile | **6099** | QQ / OneBot WebUI 与接口,可连接 AstrBot |
+| **Watchtower** | https://github.com/containrrr/watchtower | Docker(`containrrr/watchtower:latest`),label-enable + scope | 无 | 定时拉取并滚动重启明确标记的容器 |
 
 ### 基础设施调用速查(OpenAI 兼容)
 
@@ -80,3 +83,5 @@
 
 - 新增工具时:在本文件 + `sources.json` 同步登记
 - 源仓库地址变更:及时更新,避免 agent 使用过期/山寨源
+- Docker Desktop 模板见 `infra/docker-desktop/`:发布镜像使用 `pull_policy: always`;Watchtower 仅更新 enable 标签且 scope 匹配的容器
+- NapCat/Redis/本地构建镜像默认不自动更新,避免账号会话与本地代码被静默替换
