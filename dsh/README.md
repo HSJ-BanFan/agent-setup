@@ -4,11 +4,12 @@
 
 | 文件 | 内容 |
 |---|---|
-| [install.ps1](install.ps1) | **一键安装**:配置 + 技能同步 + 手动项指引 |
+| [install.ps1](install.ps1) | **一键安装**:配置 + 技能同步 + 预设安装 + 手动项指引 |
 | [skills.ps1](skills.ps1) | 技能同步脚本(仓库 29 + packaged 4 + git 源 16 = 49 个) |
 | [skills-manifest.json](skills-manifest.json) | 外部技能来源清单(机器可读) |
-| [settings.yaml](settings.yaml) | 用户设置:LLM provider(cpa / opencode-go)、权限预设、默认模型 |
+| [settings.yaml](settings.yaml) | 用户设置:LLM provider(opencode-go)、权限预设、默认模型 |
 | [cordis.patch.yml](cordis.patch.yml) | web profile 补丁:3 个 MCP 服务器(playwright / github / devtools) |
+| [presets/](presets/) | Agent 预设(router-standard / anchored-standard,直接拷入 `~/.dsh/.agent-presets/`) |
 | [packaged-skills/](packaged-skills/) | 已做 DSH 适配的第三方技能(4 个) |
 
 ## 新机安装
@@ -27,13 +28,14 @@ cd agent-setup
 1. 备份并写入 ~/.dsh/settings.yaml(provider 声明,密钥走环境变量引用)
 2. 备份并写入 ~/.dsh/profiles/web/cordis.patch.yml(MCP 配置)
 3. 同步 49 个技能到 ~/.agents/skills(热加载,无需重启)
-4. 输出手动项清单(API keys / GITHUB_TOKEN)
+4. 安装预设到 ~/.dsh/.agent-presets/(router-standard / anchored-standard)
+5. 输出手动项清单(API keys / GITHUB_TOKEN)
 
 ## 手动项(密钥不入库,按脚本指引)
 
 | 项 | 方式 |
 |---|---|
-| CPA_API_KEY / OPENCODE_GO_API_KEY / DEEPSEEK_API_KEY | dsh web → 设置 → Models 页写入 |
+| OPENCODE_GO_API_KEY / DEEPSEEK_API_KEY | dsh web → 设置 → Models 页写入 |
 | GITHUB_TOKEN | gh auth login → setx GITHUB_TOKEN (gh auth token)(系统环境变量) |
 
 ## MCP 服务器(由 cordis.patch.yml 声明)
@@ -57,6 +59,10 @@ cd agent-setup
 ```powershell
 Copy-Item $HOME\.dsh\settings.yaml .\dsh\settings.yaml
 Copy-Item $HOME\.dsh\profiles\web\cordis.patch.yml .\dsh\cordis.patch.yml
+# 预设(已安装副本才是修复后最新版):
+Remove-Item .\dsh\presets\* -Recurse -Force
+Copy-Item $HOME\.dsh\.agent-presets\* .\dsh\presets\ -Recurse -Force
+# 技能 packaged:
 Copy-Item $HOME\.agents\skills\claude-md-* .\dsh\packaged-skills\ -Recurse -Force
 Copy-Item $HOME\.agents\skills\context-md* .\dsh\packaged-skills\ -Recurse -Force
 git add dsh && git commit -m "同步:DSH 配置" && git push

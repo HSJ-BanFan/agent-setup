@@ -1,23 +1,7 @@
 ui-onboarding:
   welcomeNoticeVersion: 2026-08-13.1
-permission:
-  defaultPreset: danger-full-access
 llm-pi-ai:
   providers:
-    cpa:
-      displayName: cpa
-      apiKeyEnv: CPA_API_KEY
-      api: openai-completions
-      baseURL: http://127.0.0.1:18318/v1
-      models:
-        - id: grok-4.20-multi-agent-0309
-        - id: deepseek-v4-flash
-        - id: ocg/deepseek-v4-flash
-        - id: deepseek-v4-pro
-        - id: ocg/deepseek-v4-pro
-        - id: grok-4.5
-        - id: Claude Sonnet 4.5
-        - id: Claude Haiku 4.5
     opencode-go:
       apiKeyEnv: OPENCODE_GO_API_KEY
       models:
@@ -29,8 +13,12 @@ llm-pi-ai:
           name: DeepSeek V4 Pro
           contextWindow: 1000000
           maxTokens: 384000
+ui-theme:
+  preference: light
 agent-presets:
-  default: code
+  default: minimal
+permission:
+  defaultPreset: danger-full-access
 agent-default-model:
   provider: opencode-go
   model: deepseek-v4-flash

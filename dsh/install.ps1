@@ -63,11 +63,34 @@ if (-not $SkipSkills -and -not $DryRun) {
   & (Join-Path $PSScriptRoot "skills.ps1")
 }
 
-# 4) 凭据与环境变量指引(密钥不入库)
+# 4) 预设安装(router-standard / anchored-standard → ~/.dsh/.agent-presets)
+$presetRoot = Join-Path $DshHome ".agent-presets"
+$srcPresets = Join-Path $PSScriptRoot "presets"
+if (Test-Path $srcPresets) {
+  Write-Host "[dsh] 同步预设到 $presetRoot ..."
+  New-Item $presetRoot -ItemType Directory -Force | Out-Null
+  Get-ChildItem $srcPresets -Directory | ForEach-Object {
+    $target = Join-Path $presetRoot $_.Name
+    if ($DryRun) {
+      Write-Host "[dsh] 将写入预设: $target"
+    } else {
+      if (Test-Path $target) {
+        $bak = "$target.bak-$Stamp"
+        Move-Item $target $bak -Force
+        Write-Host "[dsh] 备份旧预设: $bak"
+      }
+      Copy-Item $_.FullName $target -Recurse -Force
+      Write-Host "[dsh] 预设已装: $($_.Name)"
+    }
+  }
+} else {
+  Write-Host "[dsh] 未找到 presets/ 目录,跳过预设安装" -ForegroundColor Yellow
+}
+
+# 5) 凭据与环境变量指引(密钥不入库)
 Write-Host ""
 Write-Host "==== 需要手动完成 ===="
 Write-Host "1. API keys: 启动 dsh web 后,在 设置 → Models 页面写入(对应 apiKeyEnv):"
-Write-Host "   - CPA_API_KEY (cpa 代理, 默认 sk-local-proxy)"
 Write-Host "   - OPENCODE_GO_API_KEY"
 Write-Host "   - DEEPSEEK_API_KEY (web 搜索/模型)"
 Write-Host "2. GitHub Token(供 MCP github 服务器与 gh CLI 使用):"
@@ -77,5 +100,6 @@ Write-Host "3. 重启 dsh web 进程使 MCP 与 GITHUB_TOKEN 生效"
 Write-Host ""
 Write-Host "==== 验证清单 ===="
 Write-Host "[] dsh web 启动正常 (默认 http://127.0.0.1:3080)"
+Write-Host "[] 新会话预设可选: Router Standard (experimental) / Anchored Standard (experimental)"
 Write-Host "[] 新会话中可见 mcp__playwright__* / mcp__github__* / mcp__devtools__* 工具"
 Write-Host "[] skill 目录加载 49 个技能 (可用 / 菜单或直接触发)"
