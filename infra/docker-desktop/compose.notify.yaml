@@ -1,7 +1,0 @@
-# 可选 Telegram 通知覆盖层。先复制 .env.example 为 .env 并填写新凭据。
-services:
-  watchtower:
-    environment:
-      WATCHTOWER_NOTIFICATIONS: shoutrrr
-      WATCHTOWER_NOTIFICATION_URL: "telegram://${TG_TOKEN}@telegram?chats=${TG_CHAT}&parseMode=Markdown"
-      WATCHTOWER_NOTIFICATIONS_HOSTNAME: docker-desktop

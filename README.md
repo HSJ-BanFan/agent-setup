@@ -1,61 +1,44 @@
-# Agent 配置仓库 (agent-setup)
+# agent-setup — Pi 环境复刻包
 
-本仓库是 **AI 开发环境配置技能包**:跨机器快速复刻完整环境。
-包含 4 个主要 agent 的配置、29 个共享技能(mattpocock+orca)、MCP/插件方案和 Docker AI 基础设施模板,
-并内置**配置技能**(`SKILL.md`),让任意 AI agent(pi / opencode / Claude Code / Codex)
-在陌生机器上自动引导完成配置。
-
-> ⚠️ **安全声明**:本仓库已做脱敏处理,不含任何 API 密钥。
-> 所有 `YOUR_*_KEY_HERE` / `YOUR_API_KEY` 占位符需要在新机器上替换为真实值。
-
-## 给 AI Agent 的入口
-
-| 文件 | 用途 |
-|---|---|
-| [`SKILL.md`](SKILL.md) | **配置技能主入口**:agent 读取后按流程执行 |
-| [`skill/tool-index.md`](skill/tool-index.md) | **所有工具的源仓库地址索引**(安装/配置/端口) |
-| [`skill/sources.json`](skill/sources.json) | 机器可读的源仓库清单 |
-| [`skill/routing.md`](skill/routing.md) | 任务 → 执行路径路由矩阵 |
-| [`RULES.md`](RULES.md) | 执行规则(安全/来源/顺序/平台) |
-| [`AGENTS.md`](AGENTS.md) | 平台中立仓库指令 |
+在任意全新 Windows 机器上完整复刻我的 [Pi coding agent](https://github.com/earendil-works/pi-coding-agent) 环境——**除账号登录外的一切**。
 
 ## 覆盖范围
 
-| 项 | 内容 | 目录 |
-|---|---|---|
-| **Claude Code** | settings.json、claude-hud 插件、MCP 服务器 | [`claude-code/`](claude-code/) |
-| **Codex** | config.toml、auth 模板、插件 | [`codex/`](codex/) |
-| **Pi** | settings.json、models、4 个扩展、MCP、包列表 | [`pi/`](pi/) |
-| **OpenCode** | opencode.jsonc(provider 模板 + MCP 服务器) | [`opencode/`](opencode/) |
-| **CC-Switch** | 供应商切换工具配置说明 | [`cc-switch/`](cc-switch/) |
-| **Orca** | Agent 编排工具:hooks、cli 技能、安装说明 | [`orca/`](orca/) |
-| **DSH(DeepSeek Harness)** | settings.yaml、3 个 MCP 服务器、49 个技能安装方案 | [`dsh/`](dsh/) |
-| **共享技能** | 29 个(mattpocock 25 + orca 4) | [`skills/`](skills/) |
-| **AI 基础设施** | 9router / grok2api / kiro-rs / cli-proxy-api / CPA Manager Plus / NapCat / Watchtower | [`infra/`](infra/) |
+| 内容 | 来源 | 复刻方式 |
+|------|------|---------|
+| Pi 本体 | npm `@earendil-works/pi-coding-agent` | `setup.ps1` 安装 |
+| 5 个配置文件(settings/mcp/open-tui/claude-code-style/models-store) | `~/.pi/agent/` | `pi/` 目录直拷 |
+| 3 个本地扩展(orca-agent-status/orca-prefill/orca-titlebar-spinner) | `~/.pi/agent/extensions/` | `pi/extensions/` 直拷 |
+| orca-cli 技能 | `~/.pi/agent/skills/` | `pi/skills/` 直拷 |
+| 34 个共享技能 + browser-qa.md | `~/.agents/` | `agents-skills/` 全量 vendor |
+| 14 个 pi 扩展包(~360MB) | settings.json `packages` 清单 | **首次启动 pi 自动安装**，不入库 |
 
-## 快速开始(新机器)
+## 不覆盖(设计如此)
 
-```bash
-# 1. 克隆仓库
-git clone https://github.com/<你的用户名>/agent-setup.git
+- `auth.json` — 账号凭据,复刻后手动 `/login`
+- `sessions/` `missions/` `run-history.jsonl` 及各类缓存 — 运行时数据
+- `~/.pi/agent/npm/` `bin/` — 由 pi 自动重建
+
+## 使用
+
+**新机器复刻:**
+
+```powershell
+git clone https://github.com/HSJ-BanFan/agent-setup.git
 cd agent-setup
-
-# 2. 让 AI 代劳(推荐):把本仓库路径告诉你的 agent(pi/opencode/claude),
-#    它会读取 SKILL.md 自动引导完成配置
-
-# 或一键复刻(Windows)
-.\setup.ps1
-
-# 或(Linux/macOS)
-./setup.sh
-
-# 3. 按提示填入 API keys(见各目录 README)
+pwsh setup.ps1     # 装 node(缺则 winget)→ 装 pi → 拷配置
+pi                 # 启动后 /login,扩展包自动安装
 ```
 
-> 详细步骤:每个子目录都有 `README.md`;工具来源见 [`skill/tool-index.md`](skill/tool-index.md)。
+> 国内网络若 npm 慢,先配好代理再跑。
 
-## 架构概览
+**本机配置变更后回写仓库:**
 
+```powershell
+pwsh snapshot.ps1  # 导出配置+技能,自动扫密钥,git diff 核对后提交
 ```
-┌─────────────────────────────────────────────────────┐
-│            AI 开发环境(Claude Code / Codex /         │
+
+## 维护约定
+
+- 配置以 `snapshot.ps1` 导出为准,不手编 `pi/` 下文件(会被下次导出覆盖)
+- `models-store.json` 已验证仅含 provider 定义无密钥;新增 provider 后跑一次 snapshot 的密钥扫描确认

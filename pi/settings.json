@@ -1,31 +1,26 @@
 {
-  "defaultProvider": "opencode-go",
-  "defaultModel": "deepseek-v4-flash",
-  "defaultThinkingLevel": "max",
-  "theme": "dark",
-  "steeringMode": "all",
-  "followUpMode": "all",
-  "defaultProjectTrust": "always",
-  "retry": {
-    "enabled": true,
-    "maxRetries": 5
-  },
-  "skills": [
-    "~/.claude/skills",
-    "~/.codex/skills"
-  ],
-  "lastChangelogVersion": "0.84.1",
   "packages": [
-    "npm:pi-mcp-adapter",
-    "npm:pi-subagents",
-    "npm:context-mode",
-    "npm:pi-hashline-edit-pro",
-    "git:github.com/earendil-works/pi-review",
-    "npm:pi-open-tui",
+    "npm:@dietrichgebert/ponytail",
     "npm:pi-web-access",
-    "npm:pi-simplify",
-    "npm:@ff-labs/pi-fff"
+    "npm:pi-subagents",
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-mcp-adapter",
+    "npm:pi-context-view",
+    "npm:@narumitw/pi-btw",
+    "npm:@plannotator/pi-extension",
+    "npm:@narumitw/pi-goal",
+    "npm:@quintinshaw/pi-dynamic-workflows",
+    "npm:pi-open-tui",
+    "npm:pi-cc-extensions",
+    "npm:pi-frontend-check",
+    "npm:@blackbelt-technology/pi-dashboard-frontend-patterns"
   ],
-  "tuiMode": "fullscreen",
-  "fullscreenScrollbar": "auto"
+  "lastChangelogVersion": "0.84.3",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "muse-spark-1.2-contributor",
+  "defaultThinkingLevel": "xhigh",
+  "theme": "dark",
+  "markdown": {
+    "mermaid": "final"
+  }
 }
