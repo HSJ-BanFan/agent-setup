@@ -13,14 +13,24 @@
     "npm:pi-open-tui",
     "npm:pi-cc-extensions",
     "npm:pi-frontend-check",
-    "npm:@blackbelt-technology/pi-dashboard-frontend-patterns"
+    "npm:@blackbelt-technology/pi-dashboard-frontend-patterns",
+    "npm:@tian.zuo/pi-antigravity",
+    "npm:pi-hashline-edit-pro",
+    "npm:pi-lens"
   ],
-  "lastChangelogVersion": "0.84.3",
+  "lastChangelogVersion": "0.84.4",
   "defaultProvider": "opencode-go",
   "defaultModel": "muse-spark-1.2-contributor",
   "defaultThinkingLevel": "xhigh",
   "theme": "dark",
   "markdown": {
     "mermaid": "final"
-  }
+  },
+  "tuiMode": "fullscreen",
+  "defaultTools": [
+    "read",
+    "powershell",
+    "edit",
+    "write"
+  ]
 }

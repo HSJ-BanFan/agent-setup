@@ -6,6 +6,11 @@ $repo = $PSScriptRoot
 $piAgent = Join-Path $HOME '.pi\agent'
 
 function Mirror($src, $dst) {
+    if (-not (Test-Path $src)) {
+        if (Test-Path $dst) { Remove-Item $dst -Recurse -Force }
+        Write-Host "跳过不存在的源: $src (已清空 $dst)"
+        return
+    }
     robocopy $src $dst /MIR /NFL /NDL /NJH /NJS | Out-Null
     if ($LASTEXITCODE -ge 8) { throw "robocopy 失败: $src -> $dst (exit $LASTEXITCODE)" }
 }
@@ -31,3 +36,4 @@ if ($hit) { Write-Warning "疑似密钥，禁止提交: $($hit.Path)" }
 
 Write-Host '已导出。核对后提交:'
 git -C $repo status --short
+

@@ -4,6 +4,11 @@ $ErrorActionPreference = 'Stop'
 $repo = $PSScriptRoot
 
 function Mirror($src, $dst) {
+    if (-not (Test-Path $src)) {
+        if (Test-Path $dst) { Remove-Item $dst -Recurse -Force }
+        Write-Host "跳过不存在的源: $src (已清空 $dst)"
+        return
+    }
     robocopy $src $dst /MIR /NFL /NDL /NJH /NJS | Out-Null
     if ($LASTEXITCODE -ge 8) { throw "robocopy 失败: $src -> $dst (exit $LASTEXITCODE)" }
 }
@@ -35,3 +40,4 @@ Write-Host ''
 Write-Host '✅ 复刻完成。唯一剩余的手动步骤:'
 Write-Host '   运行 pi → /login 登录账号（auth.json 不入库，无法代劳）'
 Write-Host '   首次启动会自动安装 settings.json 里的扩展包（约 360MB，需网络）。'
+
