@@ -21,6 +21,11 @@ foreach ($f in $configs) {
     if (-not (Test-Path "$piAgent\$f")) { throw "缺少 $piAgent\$f，请确认路径" }
 }
 Copy-Item ($configs | ForEach-Object { "$piAgent\$_" }) "$repo\pi\" -Force
+# Pi 自动维护的版本号是运行时元数据，不同步到仓库
+$settingsPath = Join-Path $repo 'pi\settings.json'
+$settings = Get-Content $settingsPath -Raw | ConvertFrom-Json
+$settings.PSObject.Properties.Remove('lastChangelogVersion')
+$settings | ConvertTo-Json -Depth 10 | Set-Content $settingsPath -Encoding utf8
 Mirror "$piAgent\extensions" "$repo\pi\extensions"
 Mirror "$piAgent\skills" "$repo\pi\skills"
 

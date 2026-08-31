@@ -18,7 +18,6 @@
     "npm:pi-hashline-edit-pro",
     "npm:pi-lens"
   ],
-  "lastChangelogVersion": "0.84.4",
   "defaultProvider": "opencode-go",
   "defaultModel": "muse-spark-1.2-contributor",
   "defaultThinkingLevel": "xhigh",

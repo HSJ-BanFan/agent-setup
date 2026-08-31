@@ -25,7 +25,7 @@ if (-not (Get-Command npm -ErrorAction SilentlyContinue)) {
 # 2. Pi 本体
 npm install -g '@earendil-works/pi-coding-agent'
 
-# 3. ~/.pi/agent 配置（settings.json 里的 14 个扩展包会在首次启动 pi 时自动安装）
+# 3. ~/.pi/agent 配置（settings.json 中的扩展包会在首次启动 pi 时自动安装）
 $piAgent = Join-Path $HOME '.pi\agent'
 New-Item -ItemType Directory -Force -Path "$piAgent\extensions", "$piAgent\skills", "$HOME\.agents\skills" | Out-Null
 Copy-Item "$repo\pi\*.json" $piAgent -Force
